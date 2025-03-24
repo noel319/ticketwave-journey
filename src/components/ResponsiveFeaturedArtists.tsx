@@ -4,7 +4,7 @@ import FeaturedArtists from './FeaturedArtists';
 
 const ResponsiveFeaturedArtists = () => {
   return (
-    <div className="w-full">
+    <div className="w-full px-4 sm:px-6 md:px-0">
       <FeaturedArtists />
     </div>
   );
