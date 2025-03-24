@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Music, Music2, Music4 } from 'lucide-react';
 
 interface ArtistPair {
   id: number;
@@ -90,23 +91,38 @@ const FeaturedArtists = () => {
     <section 
       ref={sectionRef} 
       className={cn(
-        "py-24 bg-gradient-to-b from-black to-gray-900 transition-opacity duration-1000",
+        "py-16 md:py-24 bg-gradient-to-b from-black/90 to-gray-900/90 relative transition-opacity duration-1000 overflow-hidden",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Featured Artists</h2>
+      {/* Music icon decorations */}
+      <div className="absolute top-10 left-10 text-purple-400/20 hidden md:block animate-float">
+        <Music className="w-16 h-16" />
+      </div>
+      <div className="absolute bottom-20 right-10 text-blue-400/20 hidden md:block animate-float" style={{ animationDelay: "1s" }}>
+        <Music2 className="w-24 h-24" />
+      </div>
+      <div className="absolute top-1/2 left-1/4 text-pink-400/20 hidden md:block animate-float" style={{ animationDelay: "2s" }}>
+        <Music4 className="w-20 h-20" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-gradient">Featured Artists</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">Experience incredible performances from the world's biggest music stars.</p>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
           <div 
-            className="relative overflow-hidden bg-gray-900 rounded-lg shadow-2xl aspect-[16/9]"
-            style={{ minHeight: '400px' }}
+            className="relative overflow-hidden rounded-xl shadow-2xl aspect-[16/9]"
+            style={{ 
+              minHeight: '300px',
+              backgroundImage: 'linear-gradient(225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)',
+              backgroundSize: 'cover'
+            }}
           >
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10"></div>
+            <div className="absolute inset-0 overflow-hidden rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
               <img 
                 src={artistPairs[currentPair].image} 
                 alt={artistPairs[currentPair].artists.join(' & ')} 
@@ -119,30 +135,30 @@ const FeaturedArtists = () => {
 
             <div 
               className={cn(
-                "absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-12 transition-all duration-500",
+                "absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-12 transition-all duration-500",
                 isAnimating ? 
                   (direction === 'right' ? "translate-x-full opacity-0" : "-translate-x-full opacity-0") : 
                   "translate-x-0 opacity-100"
               )}
             >
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
-                {artistPairs[currentPair].artists[0]} 
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3">
+                <span className="text-gradient-primary">{artistPairs[currentPair].artists[0]}</span> 
                 <span className="text-yellow-400"> & </span> 
-                {artistPairs[currentPair].artists[1]}
+                <span className="text-gradient-primary">{artistPairs[currentPair].artists[1]}</span>
               </h3>
-              <p className="text-gray-300 text-lg md:text-xl mb-6">
+              <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-6">
                 {artistPairs[currentPair].description}
               </p>
               <a 
                 href="/tickets" 
-                className="inline-flex items-center bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md font-medium transition-all duration-300 self-start transform hover:scale-105"
+                className="inline-flex items-center bg-white hover:bg-gray-100 text-black px-4 py-2 sm:px-6 sm:py-3 rounded-md font-medium transition-all duration-300 self-start transform hover:scale-105 text-sm sm:text-base"
               >
                 Get Tickets
               </a>
             </div>
           </div>
 
-          <div className="flex justify-center mt-8 space-x-3">
+          <div className="flex justify-center mt-6 md:mt-8 space-x-3">
             {artistPairs.map((_, index) => (
               <button
                 key={index}
@@ -155,7 +171,7 @@ const FeaturedArtists = () => {
                   setCurrentPair(index);
                 }}
                 className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-300",
+                  "w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300",
                   index === currentPair ? "bg-white scale-110" : "bg-gray-600 hover:bg-gray-400"
                 )}
                 aria-label={`View artist pair ${index + 1}`}
@@ -165,17 +181,17 @@ const FeaturedArtists = () => {
 
           <button
             onClick={handlePrevious}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 sm:p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
             aria-label="Previous artist"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 sm:p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
             aria-label="Next artist"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
         </div>
       </div>

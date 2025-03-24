@@ -105,4 +105,32 @@
   .animate-on-scroll.show {
     @apply opacity-100 translate-y-0;
   }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  
+  .animation-delay-3000 {
+    animation-delay: 3000ms;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4000ms;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-xl shadow-xl;
+  }
 }

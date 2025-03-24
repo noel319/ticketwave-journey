@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { UserCircle, Menu, X, LogOut } from 'lucide-react';
+import { UserCircle, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/context/AuthContext';
 import { 
@@ -14,7 +14,6 @@ import {
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
 
   useEffect(() => {
@@ -39,7 +38,7 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-md py-3 shadow-lg' 
+          ? 'bg-black/70 backdrop-blur-md py-3 shadow-lg' 
           : 'bg-transparent py-6'
       )}
     >
@@ -50,26 +49,26 @@ const Navbar = () => {
             to="/" 
             className="text-white font-bold text-2xl tracking-tighter hover:opacity-90 transition-opacity"
           >
-            TicketWave
+            <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">TicketWave</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          {/* Auth and Buy Tickets button */}
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger className="text-white hover:text-gray-300 transition-colors duration-200 flex items-center focus:outline-none">
-                  <UserCircle className="mr-1 h-6 w-6" />
-                  <span className="max-w-[120px] truncate">{user.email}</span>
+                  <UserCircle className="h-6 w-6 text-pink-300" />
+                  <span className="max-w-[80px] sm:max-w-[120px] ml-1 truncate hidden sm:inline">{user.email}</span>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile">My Profile</Link>
+                <DropdownMenuContent align="end" className="w-56 glass-card bg-black/80 text-white border-pink-500/20">
+                  <DropdownMenuItem asChild className="hover:bg-white/10">
+                    <Link to="/profile" className="cursor-pointer focus:bg-white/10">My Profile</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/my-tickets">My Tickets</Link>
+                  <DropdownMenuItem asChild className="hover:bg-white/10">
+                    <Link to="/my-tickets" className="cursor-pointer focus:bg-white/10">My Tickets</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut} className="text-red-500 focus:text-red-500">
+                  <DropdownMenuSeparator className="bg-white/20" />
+                  <DropdownMenuItem onClick={handleSignOut} className="text-pink-300 hover:bg-white/10 focus:text-pink-300">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Sign Out</span>
                   </DropdownMenuItem>
@@ -80,102 +79,17 @@ const Navbar = () => {
                 to="/signin" 
                 className="text-white hover:text-gray-300 transition-colors duration-200 flex items-center"
               >
-                <UserCircle className="mr-1 h-5 w-5" />
-                <span>Sign In</span>
+                <UserCircle className="h-5 w-5 text-pink-300" />
+                <span className="ml-1 hidden sm:inline">Sign In</span>
               </Link>
             )}
             <Link 
               to="/tickets" 
-              className="bg-white text-black px-5 py-2 rounded-md font-medium hover:bg-gray-200 transition-colors duration-300"
+              className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-4 sm:px-5 py-2 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20"
             >
               Buy Tickets
             </Link>
           </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-white hover:text-gray-300 transition-colors">
-                  <UserCircle className="h-6 w-6" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>My Profile</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/my-tickets" onClick={() => setIsMobileMenuOpen(false)}>My Tickets</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut} className="text-red-500 focus:text-red-500">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign Out</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <Link 
-                to="/signin" 
-                className="text-white hover:text-gray-300 transition-colors"
-              >
-                <UserCircle className="h-6 w-6" />
-              </Link>
-            )}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white focus:outline-none"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div 
-        className={cn(
-          "md:hidden absolute w-full bg-black/95 backdrop-blur-md transition-all duration-300 ease-in-out overflow-hidden",
-          isMobileMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        )}
-      >
-        <div className="px-4 py-6 space-y-4">
-          <Link 
-            to="/" 
-            className="block text-white hover:text-gray-300 transition-colors py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link 
-            to="/about" 
-            className="block text-white hover:text-gray-300 transition-colors py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Link 
-            to="/merchandise" 
-            className="block text-white hover:text-gray-300 transition-colors py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Merchandise
-          </Link>
-          {user && (
-            <Link 
-              to="/my-tickets" 
-              className="block text-white hover:text-gray-300 transition-colors py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              My Tickets
-            </Link>
-          )}
-          <Link 
-            to="/tickets" 
-            className="block bg-white text-black px-5 py-2 rounded-md font-medium hover:bg-gray-200 transition-colors text-center"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Buy Tickets
-          </Link>
         </div>
       </div>
     </header>
