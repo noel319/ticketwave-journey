@@ -1,12 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { UserCircle, Menu, X } from 'lucide-react';
+import { UserCircle, Menu, X, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/context/AuthContext';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +29,10 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <header
@@ -42,13 +55,35 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <Link 
-              to="/signin" 
-              className="text-white hover:text-gray-300 transition-colors duration-200 flex items-center"
-            >
-              <UserCircle className="mr-1 h-5 w-5" />
-              <span>Sign In</span>
-            </Link>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-white hover:text-gray-300 transition-colors duration-200 flex items-center focus:outline-none">
+                  <UserCircle className="mr-1 h-6 w-6" />
+                  <span className="max-w-[120px] truncate">{user.email}</span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile">My Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/my-tickets">My Tickets</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleSignOut} className="text-red-500 focus:text-red-500">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sign Out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link 
+                to="/signin" 
+                className="text-white hover:text-gray-300 transition-colors duration-200 flex items-center"
+              >
+                <UserCircle className="mr-1 h-5 w-5" />
+                <span>Sign In</span>
+              </Link>
+            )}
             <Link 
               to="/tickets" 
               className="bg-white text-black px-5 py-2 rounded-md font-medium hover:bg-gray-200 transition-colors duration-300"
@@ -59,12 +94,33 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-3">
-            <Link 
-              to="/signin" 
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              <UserCircle className="h-6 w-6" />
-            </Link>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-white hover:text-gray-300 transition-colors">
+                  <UserCircle className="h-6 w-6" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" onClick={() => setIsMobileMenuOpen(false)}>My Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/my-tickets" onClick={() => setIsMobileMenuOpen(false)}>My Tickets</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleSignOut} className="text-red-500 focus:text-red-500">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sign Out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link 
+                to="/signin" 
+                className="text-white hover:text-gray-300 transition-colors"
+              >
+                <UserCircle className="h-6 w-6" />
+              </Link>
+            )}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white focus:outline-none"
@@ -104,6 +160,15 @@ const Navbar = () => {
           >
             Merchandise
           </Link>
+          {user && (
+            <Link 
+              to="/my-tickets" 
+              className="block text-white hover:text-gray-300 transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              My Tickets
+            </Link>
+          )}
           <Link 
             to="/tickets" 
             className="block bg-white text-black px-5 py-2 rounded-md font-medium hover:bg-gray-200 transition-colors text-center"

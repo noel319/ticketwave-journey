@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -79,7 +78,6 @@ const FeaturedArtists = () => {
     }, 300);
   };
 
-  // Auto-rotate
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
@@ -103,12 +101,10 @@ const FeaturedArtists = () => {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          {/* Featured Artist Card */}
           <div 
             className="relative overflow-hidden bg-gray-900 rounded-lg shadow-2xl aspect-[16/9]"
             style={{ minHeight: '400px' }}
           >
-            {/* Background Image */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10"></div>
               <img 
@@ -121,7 +117,6 @@ const FeaturedArtists = () => {
               />
             </div>
 
-            {/* Content */}
             <div 
               className={cn(
                 "absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-12 transition-all duration-500",
@@ -147,7 +142,6 @@ const FeaturedArtists = () => {
             </div>
           </div>
 
-          {/* Navigation Controls */}
           <div className="flex justify-center mt-8 space-x-3">
             {artistPairs.map((_, index) => (
               <button
@@ -169,7 +163,6 @@ const FeaturedArtists = () => {
             ))}
           </div>
 
-          {/* Arrow Controls */}
           <button
             onClick={handlePrevious}
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"

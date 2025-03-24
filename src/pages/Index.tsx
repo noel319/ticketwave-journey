@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import Hero from '@/components/Hero';
-import FeaturedArtists from '@/components/FeaturedArtists';
+import ResponsiveFeaturedArtists from '@/components/ResponsiveFeaturedArtists';
 import TourDates from '@/components/TourDates';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -35,7 +35,7 @@ const Index = () => {
       
       <main>
         <Hero />
-        <FeaturedArtists />
+        <ResponsiveFeaturedArtists />
         <TourDates />
       </main>
       
