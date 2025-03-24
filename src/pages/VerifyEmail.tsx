@@ -29,8 +29,15 @@ const VerifyEmail = () => {
               
               <div className="space-y-4 w-full">
                 <Link
+                  to="/membership" 
+                  className="block w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:opacity-90 text-white py-3 rounded-md font-medium transition-colors text-center"
+                >
+                  Continue to Membership
+                </Link>
+                
+                <Link
                   to="/signin" 
-                  className="block w-full bg-white hover:bg-gray-200 text-black py-3 rounded-md font-medium transition-colors text-center"
+                  className="block w-full bg-white hover:bg-gray-200 text-black py-3 rounded-md font-medium transition-colors text-center mt-4"
                 >
                   Back to Sign In
                 </Link>

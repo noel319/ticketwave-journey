@@ -1,10 +1,10 @@
-
 import React, { useEffect, useRef } from 'react';
 import Hero from '@/components/Hero';
 import ResponsiveFeaturedArtists from '@/components/ResponsiveFeaturedArtists';
 import TourDates from '@/components/TourDates';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import AboutConcert from '@/components/AboutConcert';
 
 const Index = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -336,7 +336,7 @@ const Index = () => {
         <main>
           <Hero />
           <ResponsiveFeaturedArtists />
-          <TourDates />
+          <AboutConcert />
         </main>
         <Footer />
       </div>

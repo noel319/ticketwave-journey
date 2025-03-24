@@ -9,9 +9,12 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Merchandise from "./pages/Merchandise";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 import VerifyEmail from "./pages/VerifyEmail";
 import NotFound from "./pages/NotFound";
 import AuthCallback from "./pages/AuthCallback";
+import MembershipCard from "./pages/MembershipCard";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +29,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/merchandise" element={<Merchandise />} />
+            <Route path="/tickets" element={<SignIn />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/membership" element={<MembershipCard />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
