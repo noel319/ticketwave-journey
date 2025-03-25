@@ -161,13 +161,7 @@ const FeaturedArtists = () => {
               </h3>
               <p className="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg mb-3 md:mb-5">
                 {artistPairs[currentPair].description}
-              </p>
-              <a 
-                href="/tickets" 
-                className="inline-flex items-center bg-white hover:bg-gray-100 text-black px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-md font-medium transition-all duration-300 self-start transform hover:scale-105 text-xs sm:text-sm md:text-base"
-              >
-                Get Tickets
-              </a>
+              </p>              
             </div>
           </div>
 
