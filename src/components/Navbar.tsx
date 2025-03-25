@@ -51,7 +51,7 @@ const Navbar = () => {
             to="/" 
             className="text-white font-bold text-2xl tracking-tighter hover:opacity-90 transition-opacity"
           >
-            <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">TicketWave</span>
+            <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">SOUNDUOEX</span>
           </Link>
 
           <div className="flex items-center">
@@ -67,7 +67,7 @@ const Navbar = () => {
                 Merchandise
               </Link>
               <Link to="/tickets" className="text-white hover:text-pink-300 transition-colors duration-200">
-                Tickets
+                Get Pass
               </Link>
               {user && (
                 <Link to="/pass" className="text-white hover:text-pink-300 transition-colors duration-200">
