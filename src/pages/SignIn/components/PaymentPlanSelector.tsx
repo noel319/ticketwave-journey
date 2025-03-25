@@ -37,15 +37,7 @@ export const PaymentPlanSelector: React.FC<PaymentPlanSelectorProps> = ({
         <ul className="space-y-1 md:space-y-2">
           <li className="flex items-center text-xs md:text-sm text-gray-300">
             <Check className="h-3 w-3 md:h-4 md:w-4 text-purple-400 mr-1 md:mr-2 flex-shrink-0" />
-            <span>Immediate membership activation</span>
-          </li>
-          <li className="flex items-center text-xs md:text-sm text-gray-300">
-            <Check className="h-3 w-3 md:h-4 md:w-4 text-purple-400 mr-1 md:mr-2 flex-shrink-0" />
             <span>All benefits included</span>
-          </li>
-          <li className="flex items-center text-xs md:text-sm text-gray-300">
-            <Check className="h-3 w-3 md:h-4 md:w-4 text-purple-400 mr-1 md:mr-2 flex-shrink-0" />
-            <span>No monthly payments to worry about</span>
           </li>
         </ul>
       </div>
@@ -80,11 +72,7 @@ export const PaymentPlanSelector: React.FC<PaymentPlanSelectorProps> = ({
           </li>
           <li className="flex items-center text-xs md:text-sm text-gray-300">
             <Check className="h-3 w-3 md:h-4 md:w-4 text-purple-400 mr-1 md:mr-2 flex-shrink-0" />
-            <span>Spread cost over 6 months</span>
-          </li>
-          <li className="flex items-center text-xs md:text-sm text-gray-300">
-            <Check className="h-3 w-3 md:h-4 md:w-4 text-purple-400 mr-1 md:mr-2 flex-shrink-0" />
-            <span className="line-clamp-2">Total cost: $5,400 ($100 service fee)</span>
+            <span>Total cost: $5,400 ($100 interest)</span>
           </li>
         </ul>
       </div>

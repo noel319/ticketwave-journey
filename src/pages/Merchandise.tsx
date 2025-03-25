@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -111,7 +110,6 @@ const Merchandise = () => {
       <Navbar />
       
       <main>
-        {/* Hero Section */}
         <section className="relative pt-32 pb-20 md:pt-40 md:pb-28">
           <div className="absolute inset-0 z-0 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black z-10"></div>
@@ -130,7 +128,6 @@ const Merchandise = () => {
           </div>
         </section>
         
-        {/* Merchandise Section */}
         <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-black to-gray-900">
           <div 
             className={cn(
@@ -218,7 +215,6 @@ const Merchandise = () => {
           </div>
         </section>
         
-        {/* Digital Experience Section */}
         <section ref={digitalSectionRef} className="py-16 md:py-24 bg-gradient-to-b from-gray-900 to-black">
           <div 
             className={cn(
@@ -233,27 +229,20 @@ const Merchandise = () => {
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Experience Digital Magic</h2>
                 <p className="text-gray-300 mb-6">
-                  Can't make it to the live show? Experience the magic from home with our immersive digital concert experience. Featuring multi-angle HD video, studio-quality sound, and exclusive behind-the-scenes content.
+                  Can't make it to the live show? Experience the magic from home with our immersive digital concert experience. 
+                  Featuring multi-angle HD video, studio-quality sound, and exclusive behind-the-scenes content.
                 </p>
                 <p className="text-gray-300 mb-8">
                   Pre-order now to get early access to soundcheck footage and an exclusive digital merchandise pack.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="#" 
-                    className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center"
-                  >
-                    Pre-order Now
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="bg-transparent hover:bg-white/10 text-white border border-white px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center"
-                  >
-                    Watch Trailer
-                  </a>
-                </div>
+                <a 
+                  href="#" 
+                  className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center"
+                >
+                  Pre-order Now
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </a>
               </div>
               
               <div className="order-1 lg:order-2 relative">

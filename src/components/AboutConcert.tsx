@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,12 +34,10 @@ const AboutConcert = () => {
         )}
       >
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white mb-4">
-            <span className="text-sm font-medium">Exclusive Concert Event</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">2026 Concert Experience</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">SOUNDUOEX 2026</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Join us for an unforgettable night of music and entertainment at our exclusive event.
+            Witness an electrifying night where music's biggest stars unite for once-in-a-lifetime collaborative performances. 
+            This isn't just a concert—it's a groundbreaking experience you won't find anywhere else.
           </p>
         </div>
 
@@ -75,11 +74,11 @@ const AboutConcert = () => {
           </div>
           
           <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-md rounded-lg p-8 border border-purple-500/20">
-            <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">FANS ONLY Membership</h3>
+            <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Sounduoex Pass</h3>
             
             <div className="space-y-4 mb-8">
               <p className="text-gray-300">
-                Get exclusive access to this once-in-a-lifetime concert experience plus amazing perks with our FANS ONLY Membership Card.
+                Get exclusive access to an unforgettable concert experience and incredible perks with the Sounduoex Pass.
               </p>
               
               <ul className="space-y-3 text-gray-300">
@@ -89,15 +88,15 @@ const AboutConcert = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
-                  <span>Free exclusive merchandise</span>
+                  <span>Free Exclusive Merchandise</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
-                  <span>Digital concert with behind-the-scenes footage</span>
+                  <span>Digital Concert Experience with behind-the-scenes footage</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
-                  <span>Chance for exclusive Meet & Greet</span>
+                  <span>Opportunity for an Exclusive Meet & Greet</span>
                 </li>
               </ul>
             </div>
@@ -107,12 +106,12 @@ const AboutConcert = () => {
                 href="/tickets" 
                 className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:scale-105"
               >
-                Get Your Membership
+                Get Your Pass
               </a>
             </div>
             
             <p className="text-sm text-gray-400 text-center mt-4">
-              Only 80,000 memberships available. Don't miss out!
+              Only 80,000 passes available. Don't miss out!
             </p>
           </div>
         </div>
