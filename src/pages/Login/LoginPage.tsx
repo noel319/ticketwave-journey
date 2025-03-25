@@ -71,7 +71,7 @@ const LoginPage: React.FC = () => {
         <div className="max-w-md mx-auto bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-purple-500/20 shadow-xl">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gradient-primary">Login</h1>
-            <p className="text-gray-300 mt-2">Welcome back to TicketWave</p>
+            <p className="text-gray-300 mt-2">Welcome back to SOUNDUOEX</p>
           </div>
 
           <Form {...form}>

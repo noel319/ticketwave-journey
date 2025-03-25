@@ -46,7 +46,7 @@ const About = () => {
           </div>
           
           <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">About TicketWave</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">About SOUNDUOEX</h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Experience live music in a whole new dimension.
             </p>
@@ -65,7 +65,7 @@ const About = () => {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Bringing Music To 25 Cities</h2>
                 <p className="text-gray-300 mb-6">
-                  TicketWave is revolutionizing the concert experience by bringing world-class performances to 25 major cities across the globe. Our mission is to create unforgettable moments through the power of live music.
+                SOUNDUOEX is revolutionizing the concert experience by bringing world-class performances to 25 major cities across the globe. Our mission is to create unforgettable moments through the power of live music.
                 </p>
                 <p className="text-gray-300 mb-6">
                   With state-of-the-art sound systems, spectacular light shows, and the most talented artists in the industry, we're setting a new standard for live entertainment. Each venue is carefully selected to provide the perfect atmosphere for both performers and fans.

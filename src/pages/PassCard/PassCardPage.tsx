@@ -83,7 +83,7 @@ export const PassCardPage: React.FC = () => {
                     </div>
                     
                     <div className="absolute bottom-5 right-5 opacity-30">
-                      <div className="text-4xl font-bold tracking-tighter">TicketWave</div>
+                      <div className="text-4xl font-bold tracking-tighter">SOUNDUOEX</div>
                     </div>
                   </div>
                 </div>
