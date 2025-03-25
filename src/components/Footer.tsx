@@ -84,15 +84,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div className="col-span-1 md:col-span-1">
-            <h3 className="text-white font-bold mb-4">Join Our Newsletter</h3>
-            <p className="text-gray-400 mb-4 text-sm">
-              Subscribe to get updates on tour dates and exclusive pre-sale access.
-            </p>            
-          </div>
+          </div>          
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
