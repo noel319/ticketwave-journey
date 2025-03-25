@@ -56,7 +56,7 @@ const Navbar = () => {
 
           <div className="flex items-center">
             {/* Navigation Links */}
-            <nav className="flex items-center space-x-6">
+            {/* <nav className="flex items-center space-x-6">
               <Link to="/" className="text-white hover:text-pink-300 transition-colors duration-200">
                 Home
               </Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
                   Pass
                 </Link>
               )}
-            </nav>
+            </nav> */}
 
             {/* Auth button */}
             <div className="ml-6">

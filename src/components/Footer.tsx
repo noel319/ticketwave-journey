@@ -91,22 +91,7 @@ const Footer = () => {
             <h3 className="text-white font-bold mb-4">Join Our Newsletter</h3>
             <p className="text-gray-400 mb-4 text-sm">
               Subscribe to get updates on tour dates and exclusive pre-sale access.
-            </p>
-            <form className="space-y-2">
-              <div className="flex items-center">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="bg-gray-800 text-white px-4 py-2 text-sm rounded-l-md focus:outline-none focus:ring-1 focus:ring-white/30 w-full"
-                />
-                <button 
-                  type="submit" 
-                  className="bg-white text-black px-4 py-2 text-sm rounded-r-md font-medium hover:bg-gray-200 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
+            </p>            
           </div>
         </div>
 
