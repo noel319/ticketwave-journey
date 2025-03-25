@@ -208,7 +208,7 @@ const SignIn = () => {
                       <Music className="h-5 w-5 text-purple-300" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Concert Ticket</h3>
+                      <h3 className="text-lg font-semibold text-white">Concert Ticket (First-come, first-served seating)</h3>
                       <p className="text-gray-300 text-sm">First-come, first-served seating. Arrive early for the best seats!</p>
                     </div>
                   </li>
@@ -218,7 +218,7 @@ const SignIn = () => {
                       <Package className="h-5 w-5 text-purple-300" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Free Merchandise</h3>
+                      <h3 className="text-lg font-semibold text-white">Free Exclusive Merchandise</h3>
                       <p className="text-gray-300 text-sm">Select two exclusive merchandise items included with your pass.</p>
                     </div>
                   </li>
@@ -228,7 +228,7 @@ const SignIn = () => {
                       <Calendar className="h-5 w-5 text-purple-300" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Digital Concert</h3>
+                      <h3 className="text-lg font-semibold text-white">Digital Concert Experience with behind-the-scenes footage</h3>
                       <p className="text-gray-300 text-sm">Exclusive digital concert with behind-the-scenes footage and interviews.</p>
                     </div>
                   </li>
@@ -238,7 +238,7 @@ const SignIn = () => {
                       <Users className="h-5 w-5 text-purple-300" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">Meet & Greet Chance</h3>
+                      <h3 className="text-lg font-semibold text-white">Opportunity for an Exclusive Meet & Greet</h3>
                       <p className="text-gray-300 text-sm">Limited spots available. Members will be contacted by email before the event.</p>
                     </div>
                   </li>
@@ -288,19 +288,11 @@ const SignIn = () => {
                         </div>
                         <p className="text-3xl font-bold text-white mb-2">$5,300</p>
                         <p className="text-gray-300 text-sm mb-4">One-time payment</p>
-                        <ul className="space-y-2">
-                          <li className="flex items-center text-sm text-gray-300">
-                            <Check className="h-4 w-4 text-purple-400 mr-2" />
-                            <span>Immediate pass activation</span>
-                          </li>
+                        <ul className="space-y-2">                          
                           <li className="flex items-center text-sm text-gray-300">
                             <Check className="h-4 w-4 text-purple-400 mr-2" />
                             <span>All benefits included</span>
-                          </li>
-                          <li className="flex items-center text-sm text-gray-300">
-                            <Check className="h-4 w-4 text-purple-400 mr-2" />
-                            <span>No monthly payments to worry about</span>
-                          </li>
+                          </li>                          
                         </ul>
                       </div>
                       
@@ -330,11 +322,7 @@ const SignIn = () => {
                           <li className="flex items-center text-sm text-gray-300">
                             <Check className="h-4 w-4 text-purple-400 mr-2" />
                             <span>Spread cost over 6 months</span>
-                          </li>
-                          <li className="flex items-center text-sm text-gray-300">
-                            <Check className="h-4 w-4 text-purple-400 mr-2" />
-                            <span>Total cost: $5,400 ($100 service fee)</span>
-                          </li>
+                          </li>                          
                         </ul>
                       </div>
                     </div>
@@ -347,7 +335,7 @@ const SignIn = () => {
                     </div>
                     
                     <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">
-                      Select Your Free Merchandise (Choose 2)
+                      Select Your Free Exclusive Merchandise (Choose 2)
                     </h2>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">

@@ -45,8 +45,8 @@ export const PassBenefits = () => {
             <Users className="h-5 w-5 text-purple-300" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white">Meet & Greet Chance</h3>
-            <p className="text-gray-300 text-sm">Limited spots available. Members will be contacted by email before the event.</p>
+            <h3 className="text-lg font-semibold text-white">Get your membership to Get your Pass</h3>
+            <p className="text-gray-300 text-sm">The ultimate… to The ultimate live music experience, held at a premier stadium.</p>
           </div>
         </li>
       </ul>
