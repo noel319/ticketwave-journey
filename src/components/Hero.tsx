@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Link } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,12 +54,12 @@ const Hero = () => {
             >
               Learn More
             </button>
-            <Link 
-              to="/signup"
+            <a 
+              href="/signup"
               className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
-            </Link>
+            </a>
           </div>
         </div>
 
