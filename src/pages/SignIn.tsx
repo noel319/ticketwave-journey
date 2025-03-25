@@ -128,7 +128,7 @@ const SignIn = () => {
       // After successful signup, show success message and navigate
       toast({
         title: "Subscription Successful!",
-        description: "Your FANS ONLY Membership has been activated. Check your email for details.",
+        description: "Your FANS ONLY Pass has been activated. Check your email for details.",
       });
       
       // In a real app, we would handle payment processing here
@@ -183,10 +183,10 @@ const SignIn = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-1 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 mb-4">
-              <span className="text-sm font-medium">Limited Availability - Only 80,000 memberships</span>
+              <span className="text-sm font-medium">Limited Availability - Only 80,000 pass</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              FANS ONLY Membership Card
+              FANS ONLY Pass Card
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Your exclusive access to the concert of a lifetime and premium benefits
@@ -199,7 +199,7 @@ const SignIn = () => {
             <div className="lg:col-span-1">
               <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-md rounded-xl overflow-hidden transition-all duration-300 p-6 border border-purple-500/20 sticky top-24">
                 <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">
-                  Membership Benefits
+                  Pass Benefits
                 </h2>
                 
                 <ul className="space-y-6 mb-8">
@@ -219,7 +219,7 @@ const SignIn = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-white">Free Merchandise</h3>
-                      <p className="text-gray-300 text-sm">Select two exclusive merchandise items included with your membership.</p>
+                      <p className="text-gray-300 text-sm">Select two exclusive merchandise items included with your pass.</p>
                     </div>
                   </li>
                   
@@ -245,7 +245,7 @@ const SignIn = () => {
                 </ul>
                 
                 <div className="bg-white/5 rounded-lg p-4 mb-6">
-                  <h3 className="text-center text-lg font-semibold text-white mb-2">Membership Counter</h3>
+                  <h3 className="text-center text-lg font-semibold text-white mb-2">Pass Counter</h3>
                   <div className="text-center">
                     <p className="text-3xl font-bold text-purple-300">
                       {78462} <span className="text-sm font-normal text-gray-400">/ 80,000 available</span>
@@ -255,7 +255,7 @@ const SignIn = () => {
                 </div>
                 
                 <div className="mt-4 text-center text-sm text-gray-400">
-                  Secure your membership now before they're all gone!
+                  Secure your pass now before they're all gone!
                 </div>
               </div>
             </div>
@@ -291,7 +291,7 @@ const SignIn = () => {
                         <ul className="space-y-2">
                           <li className="flex items-center text-sm text-gray-300">
                             <Check className="h-4 w-4 text-purple-400 mr-2" />
-                            <span>Immediate membership activation</span>
+                            <span>Immediate pass activation</span>
                           </li>
                           <li className="flex items-center text-sm text-gray-300">
                             <Check className="h-4 w-4 text-purple-400 mr-2" />
@@ -341,7 +341,7 @@ const SignIn = () => {
                     
                     <div className="bg-yellow-900/20 border border-yellow-700/30 rounded-lg p-4 mb-8">
                       <p className="text-sm text-yellow-300">
-                        <strong>Important:</strong> If choosing the payment plan, three declined payments will result in membership revocation. 
+                        <strong>Important:</strong> If choosing the payment plan, three declined payments will result in pass revocation. 
                         No additional payments will be taken after revocation, but previous payments are non-refundable.
                       </p>
                     </div>
@@ -693,7 +693,7 @@ const SignIn = () => {
                                   </FormControl>
                                   <div className="space-y-1 leading-none">
                                     <FormLabel>
-                                      I understand that by selecting the payment plan, I agree to pay $900/month for 6 months. I acknowledge that three declined payments will result in membership revocation with no refunds for previous payments.
+                                      I understand that by selecting the payment plan, I agree to pay $900/month for 6 months. I acknowledge that three declined payments will result in pass revocation with no refunds for previous payments.
                                     </FormLabel>
                                     <FormMessage />
                                   </div>
@@ -721,7 +721,7 @@ const SignIn = () => {
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
                                   <FormLabel>
-                                    I agree to the <a href="#" className="text-purple-400 hover:underline">Terms and Conditions</a>, including purchase of tickets and membership card subscription.
+                                    I agree to the <a href="#" className="text-purple-400 hover:underline">Terms and Conditions</a>, including purchase of tickets and pass card subscription.
                                   </FormLabel>
                                   <FormMessage />
                                 </div>
@@ -773,7 +773,7 @@ const SignIn = () => {
                         
                         <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-6">
                           <p className="text-sm text-purple-300">
-                            <strong>You're almost there!</strong> By completing this form, you'll secure your FANS ONLY Membership and receive:
+                            <strong>You're almost there!</strong> By completing this form, you'll secure your FANS ONLY Pass and receive:
                           </p>
                           <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-purple-300">
                             <li>Access to the July 6, 2026 concert at MetLife Stadium</li>

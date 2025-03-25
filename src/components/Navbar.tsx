@@ -70,8 +70,8 @@ const Navbar = () => {
                 Tickets
               </Link>
               {user && (
-                <Link to="/membership" className="text-white hover:text-pink-300 transition-colors duration-200">
-                  Membership
+                <Link to="/pass" className="text-white hover:text-pink-300 transition-colors duration-200">
+                  Pass
                 </Link>
               )}
             </nav>
@@ -86,7 +86,7 @@ const Navbar = () => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56 glass-card bg-black/80 text-white border-pink-500/20">
                     <DropdownMenuItem asChild className="hover:bg-white/10">
-                      <Link to="/membership" className="cursor-pointer focus:bg-white/10">Membership Card</Link>
+                      <Link to="/pass" className="cursor-pointer focus:bg-white/10">Pass Card</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild className="hover:bg-white/10">
                       <Link to="/my-tickets" className="cursor-pointer focus:bg-white/10">My Tickets</Link>

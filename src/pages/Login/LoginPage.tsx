@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
     try {
       await signIn(values.email, values.password);
       toast.success("Successfully logged in!");
-      navigate('/membership');
+      navigate('/pass');
     } catch (error: any) {
       toast.error(error.message || "Failed to log in. Please check your credentials and try again.");
     } finally {

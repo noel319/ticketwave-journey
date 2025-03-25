@@ -411,7 +411,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                     </FormControl>
                     <div className="space-y-1 leading-none">
                       <FormLabel>
-                        I understand that by selecting the payment plan, I agree to pay $900/month for 6 months. I acknowledge that three declined payments will result in membership revocation with no refunds for previous payments.
+                        I understand that by selecting the payment plan, I agree to pay $900/month for 6 months. I acknowledge that three declined payments will result in pass revocation with no refunds for previous payments.
                       </FormLabel>
                       <FormMessage />
                     </div>
@@ -439,7 +439,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      I agree to the <a href="#" className="text-purple-400 hover:underline">Terms and Conditions</a>, including purchase of tickets and membership card subscription.
+                      I agree to the <a href="#" className="text-purple-400 hover:underline">Terms and Conditions</a>, including purchase of tickets and pass card subscription.
                     </FormLabel>
                     <FormMessage />
                   </div>
@@ -491,7 +491,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
           
           <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 mb-6">
             <p className="text-sm text-purple-300">
-              <strong>You're almost there!</strong> By completing this form, you'll secure your FANS ONLY Membership and receive:
+              <strong>You're almost there!</strong> By completing this form, you'll secure your FANS ONLY Pass and receive:
             </p>
             <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-purple-300">
               <li>Access to the July 6, 2026 concert at MetLife Stadium</li>

@@ -54,7 +54,7 @@ export const SignInPage: React.FC = () => {
     try {
       await signIn(values.email, values.password);
       toast.success("Successfully signed in!");
-      navigate('/membership');
+      navigate('/pass');
     } catch (error: any) {
       toast.error(error.message || "Failed to sign in. Please check your credentials and try again.");
     } finally {

@@ -45,7 +45,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-            Experience a once-in-a-lifetime concert event at MetLife Stadium with the FANS ONLY Membership Card.
+            Experience a once-in-a-lifetime concert event at MetLife Stadium with the FANS ONLY Pass Card.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -58,7 +58,7 @@ const Hero = () => {
               href="/tickets"
               className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
-              Get Membership
+              Get Pass
             </a>
           </div>
         </div>

@@ -6,18 +6,18 @@ import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import { useAuth } from '@/context/AuthContext';
 
-export const MembershipCardPage: React.FC = () => {
+export const PassCardPage: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   
-  const membershipBenefits = [
+  const passBenefits = [
     'Early access to ticket sales for all concerts',
     'Exclusive merchandise discounts (15% off)',
     'Access to VIP areas at concert venues',
     'Meet & greet opportunities with artists',
     'Priority customer support',
     'Free shipping on all merchandise orders',
-    'Personalized membership card',
+    'Personalized pass card',
     'Birthday gifts and special offers'
   ];
 
@@ -46,15 +46,15 @@ export const MembershipCardPage: React.FC = () => {
           </Button>
           
           <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-purple-500/20 shadow-xl">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gradient-primary mb-2">Premium Membership</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gradient-primary mb-2">Premium Pass</h1>
             <p className="text-lg sm:text-xl mb-8 text-purple-200">Unlock exclusive benefits and elevate your concert experience</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-              {/* Membership Benefits */}
+              {/* Pass Benefits */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 text-pink-300">Membership Benefits</h2>
+                <h2 className="text-xl font-semibold mb-4 text-pink-300">Pass Benefits</h2>
                 <ul className="space-y-3">
-                  {membershipBenefits.map((benefit, index) => (
+                  {passBenefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
                       <div className="flex-shrink-0 h-5 w-5 rounded-full bg-purple-500 flex items-center justify-center mt-0.5">
                         <Check className="h-3 w-3 text-white" />
@@ -65,9 +65,9 @@ export const MembershipCardPage: React.FC = () => {
                 </ul>
               </div>
               
-              {/* Membership Card Preview (Simplified) */}
+              {/* Pass Card Preview (Simplified) */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 text-pink-300">Exclusive Membership</h2>
+                <h2 className="text-xl font-semibold mb-4 text-pink-300">Exclusive Pass</h2>
                 <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 p-0.5">
                   <div className="bg-black/70 backdrop-blur-sm rounded-xl p-5 h-full">
                     <div className="flex justify-between items-start">
@@ -79,7 +79,7 @@ export const MembershipCardPage: React.FC = () => {
                     
                     <div className="mt-8 mb-1 text-center">
                       <p className="text-2xl font-bold text-white">Join Today!</p>
-                      <p className="text-purple-200 mt-2">Limited memberships available</p>
+                      <p className="text-purple-200 mt-2">Limited pass available</p>
                     </div>
                     
                     <div className="absolute bottom-5 right-5 opacity-30">
@@ -89,7 +89,7 @@ export const MembershipCardPage: React.FC = () => {
                 </div>
                 <div className="mt-6">
                   <p className="text-sm text-purple-200 mb-4">
-                    Join our premium membership program for just <span className="font-bold text-white">$9.99/month</span> and 
+                    Join our premium pass program for just <span className="font-bold text-white">$9.99/month</span> and 
                     unlock all these exclusive benefits.
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export const MembershipCardPage: React.FC = () => {
                 onClick={handleJoinClick}
               >
                 <Check className="mr-2 h-4 w-4" />
-                Join Premium Membership
+                Join Premium Pass
               </Button>
             </div>
           </div>
