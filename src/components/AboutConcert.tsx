@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -9,22 +8,15 @@ const AboutConcert = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    const currentRef = sectionRef.current;
+    if (currentRef) observer.observe(currentRef);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
 
@@ -51,8 +43,7 @@ const AboutConcert = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Concert Details */}
-          <div className="bg-gray-800/50 backdrop-blur-md rounded-lg overflow-hidden transition-all duration-300 p-8">
+          <div className="bg-gray-800/50 backdrop-blur-md rounded-lg p-8">
             <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Concert Details</h3>
             
             <div className="space-y-6">
@@ -83,8 +74,7 @@ const AboutConcert = () => {
             </div>
           </div>
           
-          {/* FANS ONLY Membership Preview */}
-          <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-md rounded-lg overflow-hidden transition-all duration-300 p-8 border border-purple-500/20">
+          <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-md rounded-lg p-8 border border-purple-500/20">
             <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">FANS ONLY Membership</h3>
             
             <div className="space-y-4 mb-8">
@@ -115,7 +105,7 @@ const AboutConcert = () => {
             <div className="flex justify-center">
               <a 
                 href="/tickets" 
-                className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 transform hover:scale-105"
+                className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:scale-105"
               >
                 Get Your Membership
               </a>
