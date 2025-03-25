@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Music, Music2, Music4 } from 'lucide-react';
@@ -28,6 +27,12 @@ const artistPairs: ArtistPair[] = [
     artists: ['Chris Brown', 'The Weeknd'],
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     description: 'R&B legends combine their talents for a soul-stirring, dynamic experience.'
+  },
+  {
+    id: 4,
+    artists: ['Travis Scott', 'Young Thug'],
+    image: '/img/song.jpg',
+    description: 'Hip-hop innovators bring their electrifying energy and groundbreaking sounds to the stage.'
   }
 ];
 
@@ -122,7 +127,7 @@ const FeaturedArtists = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 text-gradient">Featured Artists</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Experience incredible performances from the world's biggest music stars.</p>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Experience incredible performances from the world's biggest music stars including over 15+ surprise guests.</p>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
@@ -188,17 +193,17 @@ const FeaturedArtists = () => {
 
           <button
             onClick={handlePrevious}
-            className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-0.5 sm:p-1 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 sm:p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm z-30"
             aria-label="Previous artist"
           >
-            <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4 md:h-6 md:w-6" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-0.5 sm:p-1 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 sm:p-1.5 md:p-2 rounded-full transition-all duration-300 backdrop-blur-sm z-30"
             aria-label="Next artist"
           >
-            <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 md:h-6 md:w-6" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
           </button>
         </div>
       </div>

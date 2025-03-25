@@ -29,34 +29,7 @@ const Footer = () => {
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
-          </div>
-
-          {/* Navigation Links */}
-          <div>
-            <h3 className="text-white font-semibold uppercase text-sm tracking-wider mb-4">Navigation</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/events" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/merchandise" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
-                  Merchandise
-                </Link>
-              </li>
-            </ul>
-          </div>
+          </div>         
 
           {/* Support Links */}
           <div>
