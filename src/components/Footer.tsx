@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
@@ -9,104 +8,105 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {/* Logo and social links */}
-          <div className="col-span-1 md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="md:col-span-2">
             <Link to="/" className="inline-block text-2xl font-bold mb-4">SOUNDUOEX</Link>
-            <p className="text-gray-400 mb-4 text-sm">
+            <p className="text-gray-400 mb-6 text-sm max-w-md">
               The ultimate live music experience spanning across major stadiums worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="YouTube">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="YouTube">
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-span-1">
-            <h3 className="text-white font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          {/* Navigation Links */}
+          <div>
+            <h3 className="text-white font-semibold uppercase text-sm tracking-wider mb-4">Navigation</h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  About
+                <Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link to="/merchandise" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/events" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link to="/merchandise" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   Merchandise
-                </Link>
-              </li>
-              <li>
-                <Link to="/tickets" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Tickets
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Support */}
-          <div className="col-span-1">
-            <h3 className="text-white font-bold mb-4">Support</h3>
-            <ul className="space-y-2">
+          {/* Support Links */}
+          <div>
+            <h3 className="text-white font-semibold uppercase text-sm tracking-wider mb-4">Support</h3>
+            <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/faq" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm block">
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
             </ul>
-          </div>          
+          </div>
         </div>
 
+        {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm order-2 md:order-1 mt-4 md:mt-0">
             &copy; {currentYear} SOUNDUOEX. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0">
-            <ul className="flex space-x-4 text-sm">
+          <div className="order-1 md:order-2">
+            <ul className="flex space-x-6 text-sm">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy
-                </a>
+                <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Terms
-                </a>
+                <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Terms of Service
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300">
                   Cookies
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
