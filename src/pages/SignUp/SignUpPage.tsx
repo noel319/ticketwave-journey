@@ -190,7 +190,7 @@ export const SignUpPage: React.FC = () => {
           <div className="mt-6 text-center text-sm">
             <p className="text-gray-400">
               Already have an account?{' '}
-              <Link to="/signin" className="text-pink-400 hover:text-pink-300">
+              <Link to="/login" className="text-pink-400 hover:text-pink-300">
                 Sign in
               </Link>
             </p>
