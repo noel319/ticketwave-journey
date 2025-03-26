@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Check, CreditCard, Calendar, User, Package, Music, Users, Mail, Home, MapPin } from 'lucide-react';
+import { Check, CreditCard, Calendar, User, Package, Music, Users, Mail, Home, MapPin, X } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { useAuth } from '@/context/AuthContext';
@@ -64,19 +63,50 @@ const SignIn = () => {
   const [step, setStep] = useState(1);
   const [selectedMerchandise, setSelectedMerchandise] = useState<string[]>([]);
   const [showBillingFields, setShowBillingFields] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
   const { signUp } = useAuth();
 
   const merchandise = [
-    { id: 'tshirt', name: 'Concert T-Shirt', description: 'Limited edition concert t-shirt' },
-    { id: 'hoodie', name: 'Premium Hoodie', description: 'Cozy premium hoodie with tour dates' },
-    { id: 'poster', name: 'Autographed Poster', description: 'Exclusive autographed poster' },
-    { id: 'vinyl', name: 'Vinyl Record', description: 'Limited edition vinyl record' },
-    { id: 'hat', name: 'Snapback Hat', description: 'Tour logo snapback hat' },
-    { id: 'bracelet', name: 'VIP Bracelet', description: 'Special VIP access bracelet' },
+    { 
+      id: 'tshirt', 
+      name: 'Concert T-Shirt', 
+      description: 'Limited edition concert t-shirt', 
+      image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80' 
+    },
+    { 
+      id: 'hoodie', 
+      name: 'Premium Hoodie', 
+      description: 'Cozy premium hoodie with tour dates', 
+      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80' 
+    },
+    { 
+      id: 'poster', 
+      name: 'Autographed Poster', 
+      description: 'Exclusive autographed poster', 
+      image: 'https://images.unsplash.com/photo-1587142198902-878588a3a810?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80' 
+    },
+    { 
+      id: 'vinyl', 
+      name: 'Vinyl Record', 
+      description: 'Limited edition vinyl record', 
+      image: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80' 
+    },
+    { 
+      id: 'hat', 
+      name: 'Snapback Hat', 
+      description: 'Tour logo snapback hat', 
+      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80' 
+    },
+    { 
+      id: 'bracelet', 
+      name: 'VIP Bracelet', 
+      description: 'Special VIP access bracelet', 
+      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80' 
+    },
   ];
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -347,20 +377,63 @@ const SignIn = () => {
                               ? 'border-purple-500 bg-purple-900/20'
                               : 'border-gray-700 bg-gray-800/50 hover:border-gray-500'
                           }`}
-                          onClick={() => toggleMerchandiseSelection(item.id)}
                         >
-                          <div className="flex justify-between items-start">
-                            <h3 className="text-lg font-semibold text-white">{item.name}</h3>
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-lg font-semibold text-white line-clamp-1">{item.name}</h3>
                             {selectedMerchandise.includes(item.id) && (
                               <div className="bg-purple-500 rounded-full p-1">
                                 <Check className="h-3 w-3 text-white" />
                               </div>
                             )}
                           </div>
-                          <p className="text-sm text-gray-300 mt-1">{item.description}</p>
+                          
+                          <div 
+                            className="relative aspect-square mb-2 rounded-md overflow-hidden cursor-pointer"
+                            onClick={() => setSelectedImage(item.image)}
+                          >
+                            <img 
+                              src={item.image} 
+                              alt={item.name}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform"
+                            />
+                          </div>
+                          
+                          <p className="text-sm text-gray-300 line-clamp-2 mb-2">{item.description}</p>
+                          
+                          <button
+                            onClick={() => toggleMerchandiseSelection(item.id)}
+                            className="w-full text-sm bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 py-1 rounded transition-colors"
+                          >
+                            {selectedMerchandise.includes(item.id) ? 'Selected' : 'Select Item'}
+                          </button>
                         </div>
                       ))}
                     </div>
+                    
+                    {/* Image Preview Modal */}
+                    {selectedImage && (
+                      <div 
+                        className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+                        onClick={() => setSelectedImage(null)}
+                      >
+                        <div className="relative max-w-4xl w-full max-h-[90vh] rounded-lg overflow-hidden">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedImage(null);
+                            }}
+                            className="absolute top-4 right-4 bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
+                          >
+                            <X className="h-6 w-6 text-white" />
+                          </button>
+                          <img 
+                            src={selectedImage} 
+                            alt="Merchandise preview" 
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    )}
                     
                     <div className="flex justify-end">
                       <Button 

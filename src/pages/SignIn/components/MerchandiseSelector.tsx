@@ -74,7 +74,10 @@ export const MerchandiseSelector: React.FC<MerchandiseSelectorProps> = ({
         >
           <div className="relative max-w-4xl w-full max-h-[90vh] rounded-lg overflow-hidden">
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
               className="absolute top-4 right-4 bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
             >
               <X className="h-6 w-6 text-white" />
