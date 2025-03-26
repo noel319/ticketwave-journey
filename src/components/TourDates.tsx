@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
+import { Link } from "react-router-dom";
 interface VenueType {
   id: number;
   stadium: string;
@@ -162,8 +162,8 @@ const TourDates = () => {
                   <span className="text-sm">{venue.date}</span>
                 </div>
                 
-                <a 
-                  href="/tickets" 
+                <Link 
+                  to="/tickets" 
                   className={cn(
                     "block text-center w-full py-2 rounded transition-all duration-300 text-sm font-medium",
                     venue.tickets !== 'sold out' 
@@ -172,7 +172,7 @@ const TourDates = () => {
                   )}
                 >
                   {venue.tickets !== 'sold out' ? 'Get Tickets' : 'Sold Out'}
-                </a>
+                </Link>
               </div>
             </div>
           ))}

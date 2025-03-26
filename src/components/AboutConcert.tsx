@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
+import { Link } from "react-router-dom";
 const AboutConcert = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -103,12 +103,12 @@ const AboutConcert = () => {
             </div>
             
             <div className="flex justify-center">
-              <a 
-                href="/tickets" 
+              <Link 
+                to="/tickets" 
                 className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:scale-105"
               >
                 Get Your Pass
-              </a>
+              </Link>
             </div>
             
             <p className="text-sm text-gray-400 text-center mt-4">

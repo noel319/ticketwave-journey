@@ -16,18 +16,18 @@ const Footer = () => {
               The ultimate live music experience spanning across major stadiums worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+              <Link to="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
                 <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="YouTube">
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="YouTube">
                 <Youtube className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>         
 

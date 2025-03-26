@@ -3,7 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ShoppingCart, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
+import { Link } from "react-router-dom";
 interface Product {
   id: number;
   name: string;
@@ -236,13 +236,13 @@ const Merchandise = () => {
                   Pre-order now to get early access to soundcheck footage and an SOUNDUOEX digital merchandise pack.
                 </p>
                 
-                <a 
-                  href="#" 
+                <Link 
+                  to="#" 
                   className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md font-medium transition-all duration-300 inline-flex items-center justify-center"
                 >
                   Pre-order Now
                   <ChevronRight className="h-4 w-4 ml-1" />
-                </a>
+                </Link>
               </div>
               
               <div className="order-1 lg:order-2 relative">
