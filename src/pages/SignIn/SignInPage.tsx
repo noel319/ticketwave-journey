@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,6 +8,7 @@ import { PassBenefits } from './components/PassBenefits';
 import { PaymentPlanSelector } from './components/PaymentPlanSelector';
 import { MerchandiseSelector } from './components/MerchandiseSelector';
 import { RegistrationForm } from './components/RegistrationForm';
+import { PassHeader } from './components/PassHeader';
 
 export const SignInPage: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<'buyNow' | 'paymentPlan'>('buyNow');
@@ -59,7 +59,6 @@ export const SignInPage: React.FC = () => {
     if (selectedMerchandise.includes(id)) {
       setSelectedMerchandise(selectedMerchandise.filter(item => item !== id));
     } else {
-      // If already 2 items selected, replace the first one
       if (selectedMerchandise.length >= 2) {
         setSelectedMerchandise([selectedMerchandise[1], id]);
       } else {
@@ -93,25 +92,11 @@ export const SignInPage: React.FC = () => {
       
       <main className="pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-block px-4 py-1 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 mb-4">
-              <span className="text-sm font-medium">Limited Availability - Only 80,000 pass</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              FANS ONLY Pass Card
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Your exclusive access to the concert of a lifetime and premium benefits
-            </p>
-          </div>
+          <PassHeader />
 
-          {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Benefits */}
             <PassBenefits />
             
-            {/* Right Column - Subscription Form */}
             <div className="lg:col-span-2">
               <div className="bg-gray-900/70 backdrop-blur-md rounded-xl overflow-hidden transition-all duration-300 p-6 border border-gray-800">
                 {step === 1 && (
