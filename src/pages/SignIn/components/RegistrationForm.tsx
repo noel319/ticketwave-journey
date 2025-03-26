@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { User, CreditCard, Calendar, Mail, Home, MapPin } from 'lucide-react';
+import { User, Mail, Home, MapPin, CreditCard } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -16,19 +16,22 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useAuth } from '@/context/AuthContext';
+import { useToast } from "@/components/ui/use-toast";
+import { useNavigate } from 'react-router-dom';
 
 interface MerchandiseItem {
   id: string;
   name: string;
   description: string;
+  image: string;
 }
 
 interface RegistrationFormProps {
   selectedPlan: 'buyNow' | 'paymentPlan';
   selectedMerchandise: string[];
   merchandise: MerchandiseItem[];
-  onSubmit: (values: z.infer<typeof formSchema>) => void;
-  onBack: () => void;
+  goToPreviousStep: () => void;
 }
 
 const formSchema = z.object({
@@ -72,10 +75,12 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
   selectedPlan, 
   selectedMerchandise, 
   merchandise,
-  onSubmit,
-  onBack
+  goToPreviousStep
 }) => {
   const [showBillingFields, setShowBillingFields] = useState(false);
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const { signUp } = useAuth();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -102,6 +107,45 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
       marketingOptIn: false,
     },
   });
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      if (selectedMerchandise.length !== 2) {
+        toast({
+          title: "Please select 2 merchandise items",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (selectedPlan === 'paymentPlan' && !values.paymentPlanAcknowledgement) {
+        toast({
+          title: "Payment Plan Agreement Required",
+          description: "Please acknowledge the payment plan terms to continue.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Create account with provided email and password
+      await signUp(values.email, values.password, values.fullName);
+      
+      // After successful signup, show success message and navigate
+      toast({
+        title: "Subscription Successful!",
+        description: "Your FANS ONLY Pass has been activated. Check your email for details.",
+      });
+      
+      // In a real app, we would handle payment processing here
+      navigate('/verify-email');
+    } catch (error: any) {
+      toast({
+        title: "Subscription Failed",
+        description: error.message || "An error occurred during subscription",
+        variant: "destructive"
+      });
+    }
+  };
 
   return (
     <>
@@ -504,7 +548,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
           <div className="flex justify-between">
             <Button 
               type="button"
-              onClick={onBack}
+              onClick={goToPreviousStep}
               className="bg-gray-700 hover:bg-gray-600 text-white"
             >
               Back
