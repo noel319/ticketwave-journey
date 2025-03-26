@@ -37,7 +37,7 @@ const AboutConcert = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">SOUNDUOEX 2026</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Experience the ultimate fusion of music’s biggest names in a once a year spectacle. Eight headlining artists. 
-            Four collaborative performances. One unforgettable night. Secure your exclusive fans only pass — includes your ticket, limited-edition merchandise and more. 
+            Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
             Don’t just watch history, be part of it. 
           </p>
         </div>
