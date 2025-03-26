@@ -12,7 +12,7 @@ export const PassCardPage: React.FC = () => {
   
   const passBenefits = [
     'Early access to ticket sales for all concerts',
-    'Exclusive merchandise discounts (15% off)',
+    'SOUNDUOEX merchandise discounts (15% off)',
     'Access to VIP areas at concert venues',
     'Meet & greet opportunities with artists',
     'Priority customer support',
@@ -47,7 +47,7 @@ export const PassCardPage: React.FC = () => {
           
           <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-purple-500/20 shadow-xl">
             <h1 className="text-3xl sm:text-4xl font-bold text-gradient-primary mb-2">Premium Pass</h1>
-            <p className="text-lg sm:text-xl mb-8 text-purple-200">Unlock exclusive benefits and elevate your concert experience</p>
+            <p className="text-lg sm:text-xl mb-8 text-purple-200">Unlock SOUNDUOEX benefits and elevate your concert experience</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
               {/* Pass Benefits */}
@@ -67,13 +67,13 @@ export const PassCardPage: React.FC = () => {
               
               {/* Pass Card Preview (Simplified) */}
               <div>
-                <h2 className="text-xl font-semibold mb-4 text-pink-300">Exclusive Pass</h2>
+                <h2 className="text-xl font-semibold mb-4 text-pink-300">SOUNDUOEX Pass</h2>
                 <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 p-0.5">
                   <div className="bg-black/70 backdrop-blur-sm rounded-xl p-5 h-full">
                     <div className="flex justify-between items-start">
                       <div>
                         <h3 className="text-lg font-bold text-white mb-1">PREMIUM MEMBER</h3>
-                        <p className="text-sm text-purple-200 opacity-80">Unlock exclusive concert experiences</p>
+                        <p className="text-sm text-purple-200 opacity-80">Unlock SOUNDUOEX concert experiences</p>
                       </div>
                     </div>
                     
@@ -90,7 +90,7 @@ export const PassCardPage: React.FC = () => {
                 <div className="mt-6">
                   <p className="text-sm text-purple-200 mb-4">
                     Join our premium pass program for just <span className="font-bold text-white">$9.99/month</span> and 
-                    unlock all these exclusive benefits.
+                    unlock all these SOUNDUOEX benefits.
                   </p>
                 </div>
               </div>

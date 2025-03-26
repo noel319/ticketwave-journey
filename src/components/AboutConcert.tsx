@@ -36,8 +36,9 @@ const AboutConcert = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">SOUNDUOEX 2026</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Witness an electrifying night where music's biggest stars unite for once-in-a-lifetime collaborative performances. 
-            This isn't just a concert—it's a groundbreaking experience you won't find anywhere else.
+            Experience the ultimate fusion of music’s biggest names in a once a year spectacle. Eight headlining artists. 
+            Four collaborative performances. One unforgettable night. Secure your exclusive fans only pass — includes your ticket, limited-edition merchandise and more. 
+            Don’t just watch history, be part of it. 
           </p>
         </div>
 
@@ -78,7 +79,7 @@ const AboutConcert = () => {
             
             <div className="space-y-4 mb-8">
               <p className="text-gray-300">
-                Get exclusive access to an unforgettable concert experience and incredible perks with the Sounduoex Pass.
+                Get SOUNDUOEX access to an unforgettable concert experience and incredible perks with the SOUNDUOEX Pass.
               </p>
               
               <ul className="space-y-3 text-gray-300">
@@ -88,7 +89,7 @@ const AboutConcert = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
-                  <span>Free Exclusive Merchandise</span>
+                  <span>Free SOUNDUOEX Merchandise</span>
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
@@ -96,7 +97,7 @@ const AboutConcert = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
-                  <span>Opportunity for an Exclusive Meet & Greet</span>
+                  <span>Opportunity for an SOUNDUOEX Meet & Greet</span>
                 </li>
               </ul>
             </div>

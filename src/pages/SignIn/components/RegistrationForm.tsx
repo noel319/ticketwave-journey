@@ -525,7 +525,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      I would like to receive emails about future events, exclusive offers, and concert updates (you can unsubscribe at any time)
+                      I would like to receive emails about future events, SOUNDUOEX offers, and concert updates (you can unsubscribe at any time)
                     </FormLabel>
                   </div>
                 </FormItem>
@@ -540,7 +540,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
             <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-purple-300">
               <li>Access to the July 6, 2026 concert at MetLife Stadium</li>
               <li>Your selected merchandise items: {merchandise.filter(item => selectedMerchandise.includes(item.id)).map(item => item.name).join(' and ')}</li>
-              <li>Digital concert with exclusive content</li>
+              <li>Digital concert with SOUNDUOEX content</li>
               <li>Chance for a Meet & Greet experience</li>
             </ul>
           </div>

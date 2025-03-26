@@ -32,7 +32,7 @@ export const SignInPage: React.FC = () => {
     { 
       id: 'poster', 
       name: 'Autographed Poster', 
-      description: 'Exclusive autographed poster', 
+      description: 'SOUNDUOEX autographed poster', 
       image: 'https://images.unsplash.com/photo-1587142198902-878588a3a810?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80' 
     },
     { 
@@ -107,7 +107,7 @@ export const SignInPage: React.FC = () => {
                     />
                     
                     <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">
-                      Select Your Free Exclusive Merchandise (Choose 2)
+                      Select Your Free SOUNDUOEX Merchandise (Choose 2)
                     </h2>
                     
                     <MerchandiseSelector 

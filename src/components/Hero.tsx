@@ -39,13 +39,15 @@ const Hero = () => {
           }`}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
-            Exclusive Concert
+          SOUNDUOEX
             <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
               July 6, 2026
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-            Experience a once-in-a-lifetime concert event at MetLife Stadium with the FANS ONLY Pass Card.
+          Experience the ultimate fusion of music’s biggest names in a once a year spectacle. Eight headlining artists.
+          Four collaborative performances. One unforgettable night. Secure your exclusive fans only pass — includes your ticket, limited-edition merchandise and more. 
+          Don’t just watch history, be part of it. 
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button

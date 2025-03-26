@@ -123,7 +123,7 @@ const Merchandise = () => {
           <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Official Merchandise</h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Take home a piece of the experience with our exclusive merchandise.
+              Take home a piece of the experience with our SOUNDUOEX merchandise.
             </p>
           </div>
         </section>
@@ -230,10 +230,10 @@ const Merchandise = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Experience Digital Magic</h2>
                 <p className="text-gray-300 mb-6">
                   Can't make it to the live show? Experience the magic from home with our immersive digital concert experience. 
-                  Featuring multi-angle HD video, studio-quality sound, and exclusive behind-the-scenes content.
+                  Featuring multi-angle HD video, studio-quality sound, and SOUNDUOEX behind-the-scenes content.
                 </p>
                 <p className="text-gray-300 mb-8">
-                  Pre-order now to get early access to soundcheck footage and an exclusive digital merchandise pack.
+                  Pre-order now to get early access to soundcheck footage and an SOUNDUOEX digital merchandise pack.
                 </p>
                 
                 <a 

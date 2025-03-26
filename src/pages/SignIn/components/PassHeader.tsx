@@ -11,7 +11,7 @@ export const PassHeader: React.FC = () => {
         FANS ONLY Pass Card
       </h1>
       <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-        Your exclusive access to the concert of a lifetime and premium benefits
+        Your SOUNDUOEX access to the concert of a lifetime and premium benefits
       </p>
     </div>
   );

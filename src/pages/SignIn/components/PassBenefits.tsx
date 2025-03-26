@@ -26,8 +26,8 @@ export const PassBenefits: React.FC = () => {
               <Package className="h-5 w-5 text-purple-300" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Free Exclusive Merchandise</h3>
-              <p className="text-gray-300 text-sm">Select two exclusive merchandise items included with your pass.</p>
+              <h3 className="text-lg font-semibold text-white">Free SOUNDUOEX Merchandise</h3>
+              <p className="text-gray-300 text-sm">Select two SOUNDUOEX merchandise items included with your pass.</p>
             </div>
           </li>
           
@@ -37,7 +37,7 @@ export const PassBenefits: React.FC = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-white">Digital Concert Experience with behind-the-scenes footage</h3>
-              <p className="text-gray-300 text-sm">Exclusive digital concert with behind-the-scenes footage and interviews.</p>
+              <p className="text-gray-300 text-sm">SOUNDUOEX digital concert with behind-the-scenes footage and interviews.</p>
             </div>
           </li>
           
@@ -46,7 +46,7 @@ export const PassBenefits: React.FC = () => {
               <Users className="h-5 w-5 text-purple-300" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">Opportunity for an Exclusive Meet & Greet</h3>
+              <h3 className="text-lg font-semibold text-white">Opportunity for an SOUNDUOEX Meet & Greet</h3>
               <p className="text-gray-300 text-sm">Limited spots available. Members will be contacted by email before the event.</p>
             </div>
           </li>
