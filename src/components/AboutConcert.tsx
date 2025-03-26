@@ -104,7 +104,7 @@ const AboutConcert = () => {
             
             <div className="flex justify-center">
               <Link 
-                to="/tickets" 
+                to="/login" 
                 className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:scale-105"
               >
                 Get Your Pass

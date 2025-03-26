@@ -57,7 +57,7 @@ const Hero = () => {
               Learn More
             </button>
             <Link 
-              to="/signup"
+              to="/login"
               className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
