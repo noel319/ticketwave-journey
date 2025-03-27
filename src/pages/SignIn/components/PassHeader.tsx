@@ -9,11 +9,11 @@ export const PassHeader: React.FC = () => {
       </div>
       <h1 className="text-4xl md:text-5xl font-bold mb-4">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-300 to-fuchsia-400 animate-shimmer">
-          FANS ONLY Pass Card
+          Sounduoex pass
         </span>
       </h1>
       <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.3s" }}>
-        Your <span className="text-pink-300 font-semibold">SOUNDUOEX</span> access to the concert of a lifetime and premium benefits
+        Your <span className="text-cyan-300 font-semibold animate-text-glow">SOUNDUOEX</span> access to the concert of a lifetime and premium benefits
       </p>
     </div>
   );
