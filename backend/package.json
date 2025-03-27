@@ -1,0 +1,16 @@
+
+{
+  "name": "sounduoex-backend",
+  "version": "1.0.0",
+  "description": "SOUNDUOEX Express.js Backend",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon --exec ts-node src/app.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": ["express", "typescript", "auth", "jwt"],
+  "author": "SOUNDUOEX",
+  "license": "ISC"
+}
