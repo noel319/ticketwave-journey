@@ -19,39 +19,17 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Video Background with Spotify-inspired overlay */}
+      {/* Background video/image */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-black/80 via-purple-900/20 to-black"
+          className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black"
           style={{ zIndex: 1 }}
         ></div>
-        <video 
+        <img 
+          src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+          alt="Concert" 
           className="object-cover w-full h-full"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-crowd-of-people-in-a-concert-1216-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Animated sound bars */}
-        <div className="absolute inset-0 z-2 opacity-40">
-          <div className="absolute bottom-0 left-0 right-0 flex justify-around items-end h-36">
-            {Array.from({ length: 80 }).map((_, index) => (
-              <div 
-                key={index}
-                className="w-[0.5%] bg-gradient-to-t from-cyan-500 via-fuchsia-400 to-pink-300"
-                style={{ 
-                  height: `${Math.sin(index * 0.2) * 50 + Math.cos(index * 0.3) * 30 + 20}%`,
-                  animationDuration: `${1.5 + Math.random()}s`,
-                  animationDelay: `${index * 0.02}s`
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        />
       </div>
 
       {/* Content */}
@@ -61,29 +39,36 @@ const Hero = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight text-shadow-lg">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-white to-cyan-300 animate-pulse-slow">
-              SOUNDUOEX
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight relative">
+            <span className="animate-float inline-block relative">
+              {/* Animated Letters */}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
+              </span>
+              {/* Main visible text */}
+              <span className="relative bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">SOUNDUOEX</span>
             </span>
-            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-400 animate-shimmer">
+            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 animate-pulse-slow">
               July 6, 2026
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8 text-shadow-sm animate-fade-in" style={{ animationDelay: "0.5s" }}>
-            Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
-            Four collaborative performances. <span className="text-cyan-300">One unforgettable night.</span> Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
-            <span className="font-bold block mt-3 text-white">Don't just watch history, be part of it.</span>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+          Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
+          Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
+          Don't just watch history, be part of it. 
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToAboutSection}
-              className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-900/30"
+              className="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
             >
               Learn More
             </button>
             <Link 
-              to="/signup"
-              className="bg-transparent hover:bg-white/10 text-white border border-cyan-400 hover:border-white px-8 py-3 rounded-full font-medium transition-all duration-300"
+              to="/login"
+              className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
             </Link>
@@ -92,12 +77,10 @@ const Hero = () => {
 
         {/* Scroll indicator */}
         <div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-20"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
           onClick={scrollToAboutSection}
         >
-          <div className="p-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
-            <ChevronDown className="h-6 w-6 text-cyan-300" />
-          </div>
+          <ChevronDown className="h-8 w-8 text-white" />
         </div>
       </div>
     </section>
