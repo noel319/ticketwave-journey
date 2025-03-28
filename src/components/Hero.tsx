@@ -18,11 +18,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden bg-purple-900">
-      {/* Background video/image */}
+    <section className="relative h-screen overflow-hidden bg-black">
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-gradient-to-b from-purple-900/70 via-purple-800/40 to-purple-900"
+          className="absolute inset-0 bg-gradient-to-b from-black/70 via-gray-900/40 to-black"
           style={{ zIndex: 1 }}
         ></div>
         <img 
@@ -43,14 +43,14 @@ const Hero = () => {
             <span className="animate-float inline-block relative">
               {/* Animated Letters */}
               <span className="relative inline-block">
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-300 to-purple-500 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-300 to-purple-400 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-blue-300 to-sky-500 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-500 via-blue-300 to-sky-400 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-400 via-blue-400 to-sky-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
               </span>
               {/* Main visible text */}
-              <span className="relative bg-gradient-to-r from-purple-300 via-pink-200 to-purple-300 bg-clip-text text-transparent">SOUNDUOEX</span>
+              <span className="relative bg-gradient-to-r from-sky-300 via-blue-200 to-sky-300 bg-clip-text text-transparent">SOUNDUOEX</span>
             </span>
-            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-pink-400 animate-pulse-slow">
+            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-sky-300 to-blue-400 animate-pulse-slow">
               July 6, 2026
             </span>
           </h1>
@@ -62,13 +62,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToAboutSection}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-sky-500 to-blue-600 hover:opacity-90 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
             >
               Learn More
             </button>
             <Link 
               to="/signup"
-              className="bg-transparent hover:bg-purple-600/10 text-white border border-purple-400 px-8 py-3 rounded-md font-medium transition-all duration-300"
+              className="bg-transparent hover:bg-gray-600/10 text-white border border-gray-400 px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
             </Link>
@@ -80,7 +80,7 @@ const Hero = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
           onClick={scrollToAboutSection}
         >
-          <ChevronDown className="h-8 w-8 text-purple-400" />
+          <ChevronDown className="h-8 w-8 text-sky-400" />
         </div>
       </div>
     </section>

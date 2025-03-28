@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from "react-router-dom";
+
 const AboutConcert = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -36,9 +37,9 @@ const AboutConcert = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">SOUNDUOEX 2026</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Experience the ultimate fusion of music’s biggest names in a once a year spectacle. Eight headlining artists. 
+            Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists. 
             Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
-            Don’t just watch history, be part of it. 
+            Don't just watch history, be part of it. 
           </p>
         </div>
 
@@ -48,7 +49,7 @@ const AboutConcert = () => {
             
             <div className="space-y-6">
               <div className="flex items-start">
-                <Calendar className="h-6 w-6 text-yellow-400 mt-1 flex-shrink-0" />
+                <Calendar className="h-6 w-6 text-sky-400 mt-1 flex-shrink-0" />
                 <div className="ml-4">
                   <h4 className="text-xl font-semibold text-white">Date</h4>
                   <p className="text-gray-300">July 6, 2026</p>
@@ -56,7 +57,7 @@ const AboutConcert = () => {
               </div>
               
               <div className="flex items-start">
-                <Clock className="h-6 w-6 text-yellow-400 mt-1 flex-shrink-0" />
+                <Clock className="h-6 w-6 text-sky-400 mt-1 flex-shrink-0" />
                 <div className="ml-4">
                   <h4 className="text-xl font-semibold text-white">Time</h4>
                   <p className="text-gray-300">Doors open at 5:00 PM | Show starts at 7:00 PM</p>
@@ -64,7 +65,7 @@ const AboutConcert = () => {
               </div>
               
               <div className="flex items-start">
-                <MapPin className="h-6 w-6 text-yellow-400 mt-1 flex-shrink-0" />
+                <MapPin className="h-6 w-6 text-sky-400 mt-1 flex-shrink-0" />
                 <div className="ml-4">
                   <h4 className="text-xl font-semibold text-white">Venue</h4>
                   <p className="text-gray-300">MetLife Stadium</p>
@@ -74,7 +75,7 @@ const AboutConcert = () => {
             </div>
           </div>
           
-          <div className="bg-gradient-to-br from-purple-900/30 to-black/50 backdrop-blur-md rounded-lg p-8 border border-purple-500/20">
+          <div className="bg-gradient-to-br from-gray-900/30 to-black/50 backdrop-blur-md rounded-lg p-8 border border-gray-700/20">
             <h3 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Sounduoex Pass</h3>
             
             <div className="space-y-4 mb-8">
@@ -84,19 +85,19 @@ const AboutConcert = () => {
               
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start">
-                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
+                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-sky-500/20 text-sky-300 mr-2 mt-0.5">✓</span>
                   <span>Concert Ticket (First-come, first-served seating)</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
+                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-sky-500/20 text-sky-300 mr-2 mt-0.5">✓</span>
                   <span>Free SOUNDUOEX Merchandise</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
+                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-sky-500/20 text-sky-300 mr-2 mt-0.5">✓</span>
                   <span>Digital Concert Experience with behind-the-scenes footage</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-purple-500/20 text-purple-300 mr-2 mt-0.5">✓</span>
+                  <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-sky-500/20 text-sky-300 mr-2 mt-0.5">✓</span>
                   <span>Opportunity for an SOUNDUOEX Meet & Greet</span>
                 </li>
               </ul>
@@ -105,7 +106,7 @@ const AboutConcert = () => {
             <div className="flex justify-center">
               <Link 
                 to="/login" 
-                className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/20 hover:scale-105"
+                className="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-3 rounded-md font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:scale-105"
               >
                 Get Your Pass
               </Link>

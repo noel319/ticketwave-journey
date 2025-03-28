@@ -7,65 +7,65 @@
 
 @layer base {
   :root {
-    --background: 270 50% 20%;
+    --background: 220 50% 10%;
     --foreground: 240 10% 3.9%;
 
-    --card: 270 60% 10%;
+    --card: 220 60% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 270 60% 10%;
+    --popover: 220 60% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 270 75% 60%;
+    --primary: 210 75% 60%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 270 50% 40%;
+    --secondary: 220 50% 40%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 270 50% 25%;
+    --muted: 220 50% 25%;
     --muted-foreground: 240 5% 84.9%;
 
-    --accent: 270 50% 25%;
+    --accent: 220 50% 25%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 270 30% 40%;
-    --input: 270 30% 40%;
-    --ring: 270 50% 60%;
+    --border: 220 30% 40%;
+    --input: 220 30% 40%;
+    --ring: 210 50% 60%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 270 50% 15%;
+    --background: 220 50% 15%;
     --foreground: 0 0% 98%;
 
-    --card: 270 60% 10%;
+    --card: 220 60% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 270 60% 10%;
+    --popover: 220 60% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 270 75% 60%;
+    --primary: 210 75% 60%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 270 50% 40%;
+    --secondary: 220 50% 40%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 270 50% 25%;
+    --muted: 220 50% 25%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 270 50% 25%;
+    --accent: 220 50% 25%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 270 30% 30%;
-    --input: 270 30% 30%;
-    --ring: 270 50% 60%;
+    --border: 220 30% 30%;
+    --input: 220 30% 30%;
+    --ring: 210 50% 60%;
   }
 }
 
@@ -79,7 +79,7 @@
   }
 
   body {
-    @apply bg-purple-900 text-foreground font-sans;
+    @apply bg-black text-foreground font-sans;
   }
   
   h1, h2, h3, h4, h5, h6 {
