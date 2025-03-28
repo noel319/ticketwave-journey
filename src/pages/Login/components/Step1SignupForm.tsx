@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Mail, User, Lock, AlertCircle } from 'lucide-react';
+import { Mail, User, Lock } from 'lucide-react';
 import { SIGNUP_FIELDS } from '@/lib/authContants';
 
 const formSchema = z.object({
@@ -22,22 +22,46 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 interface Step1SignupFormProps {
-  onNext: (data: FormData) => void;
+  formData?: {
+    name: string;
+    email: string;
+    password: string;
+    [key: string]: any;
+  };
+  updateFormData?: (data: Partial<any>) => void;
+  nextStep?: () => void;
+  onNext?: (data: FormData) => void;
 }
 
-export const Step1SignupForm: React.FC<Step1SignupFormProps> = ({ onNext }) => {
+export const Step1SignupForm: React.FC<Step1SignupFormProps> = ({ 
+  formData, 
+  updateFormData, 
+  nextStep, 
+  onNext 
+}) => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      password: '',
+      name: formData?.name || '',
+      email: formData?.email || '',
+      password: formData?.password || '',
       confirmPassword: ''
     },
   });
 
   const onSubmit = (data: FormData) => {
-    onNext(data);
+    if (updateFormData && nextStep) {
+      // LoginPage.tsx flow
+      updateFormData({
+        name: data.name,
+        email: data.email,
+        password: data.password
+      });
+      nextStep();
+    } else if (onNext) {
+      // Direct onNext callback flow
+      onNext(data);
+    }
   };
 
   return (
