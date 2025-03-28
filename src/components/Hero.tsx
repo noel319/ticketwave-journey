@@ -43,14 +43,14 @@ const Hero = () => {
             <span className="animate-float inline-block relative">
               {/* Animated Letters */}
               <span className="relative inline-block">
-                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-cyan-300 to-cyan-400 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-300 to-pink-400 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-300 to-pink-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-pink-300 via-purple-400 to-pink-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
               </span>
               {/* Main visible text */}
-              <span className="relative bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">SOUNDUOEX</span>
+              <span className="relative bg-gradient-to-r from-pink-300 via-purple-200 to-pink-300 bg-clip-text text-transparent">SOUNDUOEX</span>
             </span>
-            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-500 animate-pulse-slow">
+            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-500 animate-pulse-slow">
               July 6, 2026
             </span>
           </h1>
@@ -62,13 +62,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToAboutSection}
-              className="bg-cyan-500 hover:bg-cyan-600 text-black px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
             >
               Learn More
             </button>
             <Link 
               to="/signup"
-              className="bg-transparent hover:bg-cyan-500/10 text-white border border-cyan-400 px-8 py-3 rounded-md font-medium transition-all duration-300"
+              className="bg-transparent hover:bg-pink-500/10 text-white border border-pink-400 px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
             </Link>
@@ -80,7 +80,7 @@ const Hero = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
           onClick={scrollToAboutSection}
         >
-          <ChevronDown className="h-8 w-8 text-cyan-400" />
+          <ChevronDown className="h-8 w-8 text-pink-400" />
         </div>
       </div>
     </section>
