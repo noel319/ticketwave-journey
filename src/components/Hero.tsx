@@ -55,9 +55,11 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
+
           Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
           Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
           Don't just watch history, be part of it. 
+
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button

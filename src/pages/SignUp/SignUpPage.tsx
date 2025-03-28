@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -9,16 +8,10 @@ import { toast } from 'sonner';
 import ReCAPTCHA from "react-google-recaptcha";
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useAuth } from '@/context/AuthContext';
+import { Form } from '@/components/ui/form';
+import { AuthFormField } from '@/components/auth/FormField';
+import { signUp } from '@/services/authService';
+import { SIGNUP_FIELDS } from '@/lib/authContants';
 import Navbar from '@/components/Navbar';
 
 const formSchema = z.object({
@@ -93,6 +86,7 @@ export const SignUpPage: React.FC = () => {
       }
     } catch (error) {
       // Error is handled in AuthContext
+
     } finally {
       setIsLoading(false);
     }
@@ -111,95 +105,21 @@ export const SignUpPage: React.FC = () => {
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          placeholder="Your name" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          placeholder="your.email@example.com" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          type="password" 
-                          placeholder="Create a password" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          type="password" 
-                          placeholder="Confirm your password" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              {SIGNUP_FIELDS.map((field) => (
+                <AuthFormField
+                  key={field.name}
+                  control={form.control}
+                  name={field.name}
+                  label={field.label}
+                  placeholder={field.placeholder}
+                  type={field.type}
+                  icon={field.icon}
+                />
+              ))}
 
               <div className="flex justify-center my-6">
                 <ReCAPTCHA
-                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // This is Google's test key
+                  sitekey="YOUR_ACTUAL_RECAPTCHA_SITE_KEY"
                   onChange={onCaptchaChange}
                   theme="dark"
                 />
