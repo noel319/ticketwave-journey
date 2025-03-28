@@ -43,34 +43,32 @@ const Hero = () => {
             <span className="animate-float inline-block relative">
               {/* Animated Letters */}
               <span className="relative inline-block">
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-cyan-300 to-cyan-400 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
               </span>
               {/* Main visible text */}
-              <span className="relative bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">SOUNDUOEX</span>
+              <span className="relative bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">SOUNDUOEX</span>
             </span>
-            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 animate-pulse-slow">
+            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-500 animate-pulse-slow">
               July 6, 2026
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-
-          Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
-          Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
-          Don't just watch history, be part of it. 
-
+            Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
+            Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
+            Don't just watch history, be part of it. 
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToAboutSection}
-              className="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-cyan-500 hover:bg-cyan-600 text-black px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
             >
               Learn More
             </button>
             <Link 
-              to="/login"
-              className="bg-transparent hover:bg-white/10 text-white border border-white px-8 py-3 rounded-md font-medium transition-all duration-300"
+              to="/signup"
+              className="bg-transparent hover:bg-cyan-500/10 text-white border border-cyan-400 px-8 py-3 rounded-md font-medium transition-all duration-300"
             >
               Get Pass
             </Link>
@@ -82,7 +80,7 @@ const Hero = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
           onClick={scrollToAboutSection}
         >
-          <ChevronDown className="h-8 w-8 text-white" />
+          <ChevronDown className="h-8 w-8 text-cyan-400" />
         </div>
       </div>
     </section>

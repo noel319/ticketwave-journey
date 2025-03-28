@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import LoginPage from '../Login/LoginPage';
 
 const SignUp = () => {
-  // Redirect to the new multi-step login flow
-  return <Navigate to="/login" replace />;
+  // We're using the LoginPage component but in signup mode
+  return <LoginPage initialStep={1} isSignUpFlow={true} />;
 };
 
 export default SignUp;

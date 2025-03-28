@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import Navbar from '@/components/Navbar';
@@ -10,9 +10,18 @@ import { Step2EmailVerification } from './components/Step2EmailVerification';
 import { Step3TicketSelection } from './components/Step3TicketSelection';
 import { Step4PaymentInfo } from './components/Step4PaymentInfo';
 import { Step5Success } from './components/Step5Success';
+import { toast } from 'sonner';
 
-const LoginPage: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+interface LoginPageProps {
+  initialStep?: number;
+  isSignUpFlow?: boolean;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ 
+  initialStep = 1,
+  isSignUpFlow = false
+}) => {
+  const [currentStep, setCurrentStep] = useState(initialStep);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,8 +34,8 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   // Set the appropriate step based on user auth state
-  React.useEffect(() => {
-    if (user) {
+  useEffect(() => {
+    if (user && isSignUpFlow) {
       if (!user.isEmailVerified) {
         setCurrentStep(2);
       } else if (!user.hasTicket) {
@@ -35,11 +44,15 @@ const LoginPage: React.FC = () => {
         navigate('/');
       }
     }
-  }, [user, navigate]);
+  }, [user, navigate, isSignUpFlow]);
 
   const nextStep = () => {
     window.scrollTo(0, 0);
     setCurrentStep(currentStep + 1);
+    // Show toast message for demo purposes
+    if (currentStep < 5) {
+      toast.success(`Step ${currentStep} completed successfully!`);
+    }
   };
 
   const prevStep = () => {
@@ -67,6 +80,7 @@ const LoginPage: React.FC = () => {
             email={formData.email} 
             nextStep={nextStep} 
             prevStep={prevStep}
+            skipVerification={true} // For demo purposes
           />
         );
       case 3:
@@ -105,12 +119,16 @@ const LoginPage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 bg-clip-text text-transparent">
-              Join SOUNDUOEX Pass
+              {isSignUpFlow ? 'Join SOUNDUOEX Pass' : 'Welcome Back'}
             </h1>
-            <p className="mt-3 text-gray-400">Complete the steps below to get your exclusive SOUNDUOEX Pass</p>
+            <p className="mt-3 text-gray-400">
+              {isSignUpFlow 
+                ? 'Complete the steps below to get your exclusive SOUNDUOEX Pass' 
+                : 'Sign in to access your SOUNDUOEX Pass and exclusive content'}
+            </p>
           </div>
           
-          <StepIndicator currentStep={currentStep} />
+          {isSignUpFlow && <StepIndicator currentStep={currentStep} />}
           
           <div className="mt-8 bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-gray-800">
             {renderStep()}
