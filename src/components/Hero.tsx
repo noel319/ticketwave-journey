@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link } from "react-router-dom";
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -38,16 +39,27 @@ const Hero = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
-          SOUNDUOEX
-            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight relative">
+            <span className="animate-float inline-block relative">
+              {/* Animated Letters */}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text text-transparent animate-shimmer opacity-80">SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '0.5s' }}>SOUNDUOEX</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer opacity-80" style={{ animationDelay: '1s' }}>SOUNDUOEX</span>
+              </span>
+              {/* Main visible text */}
+              <span className="relative bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">SOUNDUOEX</span>
+            </span>
+            <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 animate-pulse-slow">
               July 6, 2026
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-          Experience the ultimate fusion of music’s biggest names in a once a year spectacle. Eight headlining artists.
+
+          Experience the ultimate fusion of music's biggest names in a once a year spectacle. Eight headlining artists.
           Four collaborative performances. One unforgettable night. Secure your exclusive Sounduoex pass — includes your ticket, limited-edition merchandise and more. 
-          Don’t just watch history, be part of it. 
+          Don't just watch history, be part of it. 
+
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button

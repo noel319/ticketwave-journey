@@ -3,8 +3,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Merchandise from "./pages/Merchandise";
@@ -26,17 +27,48 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Public routes */}
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/merchandise" element={<Merchandise />} />
-            <Route path="/tickets" element={<SignIn />} />
-            <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/pass" element={<PassCard />} />
-            <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            
+            {/* Email verification route */}
+            <Route 
+              path="/verify-email" 
+              element={
+                <ProtectedRoute requireAuth={true} requireVerified={false}>
+                  <VerifyEmail />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Requires authentication and email verification */}
+            <Route 
+              path="/tickets" 
+              element={
+                <ProtectedRoute requireAuth={true} requireVerified={true}>
+                  <SignIn />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Requires authentication, email verification, and ticket */}
+            <Route 
+              path="/pass" 
+              element={
+                <ProtectedRoute requireAuth={true} requireVerified={true} requireTicket={true}>
+                  <PassCard />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Aliases for backward compatibility */}
+            <Route path="/signin" element={<Navigate to="/tickets" replace />} />
+            
+            {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
