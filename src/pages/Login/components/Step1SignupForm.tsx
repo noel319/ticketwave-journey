@@ -68,7 +68,7 @@ export const Step1SignupForm: React.FC<Step1SignupFormProps> = ({
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-2">Create Your Account</h2>
-        <p className="text-gray-400">Join SOUNDUOEX to get exclusive access to tickets and merchandise</p>
+        <p className="text-gray-300">Join SOUNDUOEX to get exclusive access to tickets and merchandise</p>
       </div>
       
       <Form {...form}>
@@ -87,10 +87,10 @@ export const Step1SignupForm: React.FC<Step1SignupFormProps> = ({
                         placeholder={field.placeholder} 
                         type={field.type} 
                         {...formField} 
-                        className="pl-10"
+                        className="pl-10 bg-purple-900/50 border-purple-700 focus:border-pink-500"
                       />
                     </FormControl>
-                    <div className="absolute left-3 top-3 text-gray-400">
+                    <div className="absolute left-3 top-3 text-purple-400">
                       {field.icon === 'User' && <User size={16} />}
                       {field.icon === 'Mail' && <Mail size={16} />}
                       {field.icon === 'Lock' && <Lock size={16} />}
@@ -104,7 +104,7 @@ export const Step1SignupForm: React.FC<Step1SignupFormProps> = ({
           
           <Button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
           >
             Continue
           </Button>

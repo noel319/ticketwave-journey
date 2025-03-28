@@ -75,11 +75,11 @@ export const Step2EmailVerification: React.FC<Step2EmailVerificationProps> = ({
   return (
     <div className="max-w-md mx-auto text-center">
       <div className="flex justify-center mb-6">
-        <div className={`p-4 rounded-full ${isVerified ? 'bg-green-800/50' : 'bg-gray-800/50'}`}>
+        <div className={`p-4 rounded-full ${isVerified ? 'bg-green-800/50' : 'bg-purple-800/50'}`}>
           {isVerified ? (
             <CheckCircle className="h-12 w-12 text-green-400" />
           ) : (
-            <Mail className="h-12 w-12 text-cyan-400" />
+            <Mail className="h-12 w-12 text-purple-400" />
           )}
         </div>
       </div>
@@ -93,21 +93,21 @@ export const Step2EmailVerification: React.FC<Step2EmailVerificationProps> = ({
           </p>
           <Button
             onClick={nextStep}
-            className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:opacity-90 text-black font-semibold"
+            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold"
           >
             Continue to Next Step
           </Button>
         </div>
       ) : (
         <>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-300 mb-6">
             We've sent a verification link to <span className="text-white font-medium">{email}</span>.
             Please check your inbox and click the link to verify your account.
           </p>
           
-          <div className="p-4 bg-gray-800/50 rounded-lg border border-gray-700 mb-6">
+          <div className="p-4 bg-purple-800/50 rounded-lg border border-purple-700 mb-6">
             <p className="text-sm text-gray-300">
-              <span className="text-cyan-400 font-medium">Tip:</span> If you don't see the email in your inbox, please check your spam or junk folder.
+              <span className="text-purple-400 font-medium">Tip:</span> If you don't see the email in your inbox, please check your spam or junk folder.
             </p>
           </div>
           
@@ -116,7 +116,7 @@ export const Step2EmailVerification: React.FC<Step2EmailVerificationProps> = ({
               onClick={handleResendEmail}
               disabled={isResending}
               variant="outline"
-              className="w-full flex items-center justify-center gap-2"
+              className="w-full flex items-center justify-center gap-2 border-purple-600 text-purple-300 hover:bg-purple-800/30"
             >
               {isResending ? (
                 <RefreshCw className="w-4 h-4 animate-spin" />
@@ -128,7 +128,7 @@ export const Step2EmailVerification: React.FC<Step2EmailVerificationProps> = ({
             
             <Button
               onClick={handleVerify}
-              className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:opacity-90 text-black font-semibold"
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold"
             >
               I've Verified My Email
             </Button>
@@ -136,7 +136,7 @@ export const Step2EmailVerification: React.FC<Step2EmailVerificationProps> = ({
             <Button
               onClick={prevStep}
               variant="ghost"
-              className="w-full text-gray-400"
+              className="w-full text-gray-400 hover:bg-purple-800/30 hover:text-white"
             >
               Go Back
             </Button>

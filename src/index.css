@@ -7,65 +7,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 270 50% 20%;
     --foreground: 240 10% 3.9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 270 60% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 270 60% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 240 5.9% 10%;
+    --primary: 270 75% 60%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 270 50% 40%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 270 50% 25%;
+    --muted-foreground: 240 5% 84.9%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 270 50% 25%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 270 30% 40%;
+    --input: 270 30% 40%;
+    --ring: 270 50% 60%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 270 50% 15%;
     --foreground: 0 0% 98%;
 
-    --card: 240 10% 3.9%;
+    --card: 270 60% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 3.9%;
+    --popover: 270 60% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 270 75% 60%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 3.7% 15.9%;
+    --secondary: 270 50% 40%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
+    --muted: 270 50% 25%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 240 3.7% 15.9%;
+    --accent: 270 50% 25%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 270 30% 30%;
+    --input: 270 30% 30%;
+    --ring: 270 50% 60%;
   }
 }
 
@@ -79,7 +79,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-purple-900 text-foreground font-sans;
   }
   
   h1, h2, h3, h4, h5, h6 {

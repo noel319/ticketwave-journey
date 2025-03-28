@@ -112,16 +112,16 @@ const LoginPage: React.FC<LoginPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-purple-900 text-white">
       <Navbar />
       
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-400 bg-clip-text text-transparent">
               {isSignUpFlow ? 'Join SOUNDUOEX Pass' : 'Welcome Back'}
             </h1>
-            <p className="mt-3 text-gray-400">
+            <p className="mt-3 text-gray-300">
               {isSignUpFlow 
                 ? 'Complete the steps below to get your exclusive SOUNDUOEX Pass' 
                 : 'Sign in to access your SOUNDUOEX Pass and exclusive content'}
@@ -130,7 +130,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
           
           {isSignUpFlow && <StepIndicator currentStep={currentStep} />}
           
-          <div className="mt-8 bg-gray-900/70 backdrop-blur-md rounded-xl p-6 border border-gray-800">
+          <div className="mt-8 bg-purple-950/70 backdrop-blur-md rounded-xl p-6 border border-purple-800">
             {renderStep()}
           </div>
         </div>

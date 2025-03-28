@@ -30,10 +30,10 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep }) => 
                   className={`
                     flex items-center justify-center w-10 h-10 rounded-full border-2 text-sm font-bold
                     ${isCompleted 
-                      ? 'bg-cyan-500 border-cyan-500 text-white' 
+                      ? 'bg-purple-600 border-purple-600 text-white' 
                       : isActive 
-                        ? 'bg-gray-800 border-cyan-400 text-cyan-400'
-                        : 'bg-gray-800 border-gray-600 text-gray-400'}
+                        ? 'bg-purple-900 border-purple-400 text-purple-400'
+                        : 'bg-purple-900 border-purple-700 text-gray-400'}
                   `}
                 >
                   {isCompleted ? (
@@ -46,7 +46,7 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep }) => 
                 {/* Step title */}
                 <div className={`mt-2 text-xs md:text-sm font-medium 
                   ${isCompleted 
-                    ? 'text-cyan-400' 
+                    ? 'text-purple-400' 
                     : isActive 
                       ? 'text-white'
                       : 'text-gray-500'}`
@@ -61,8 +61,8 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep }) => 
                   <div
                     className={`h-full ${
                       currentStep > index + 1 
-                        ? 'bg-gradient-to-r from-cyan-500 to-cyan-400' 
-                        : 'bg-gray-700'
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-500' 
+                        : 'bg-purple-800'
                     }`}
                   />
                 </div>
