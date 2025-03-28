@@ -1,30 +1,45 @@
-
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import { config } from './config';
 import authRoutes from './routes/auth.routes';
-
-dotenv.config();
+import { initDb } from './db';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true
-}));
+const corsOptions = {
+  origin: 'http://localhost:8080', // Your frontend origin
+  credentials: true, // If you're using cookies/sessions
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
-// Routes
 app.use('/api/auth', authRoutes);
 
-// Health check
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal server error' });
 });
+
+// Initialize database before starting the server
+initDb()
+  .then(() => {
+    app.listen(config.port, () => {
+      console.log(`Server running on port ${config.port}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to initialize database:', error);
+    process.exit(1);
+  });
