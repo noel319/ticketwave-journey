@@ -1,10 +1,9 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/lib/supabaseClient';
 import { useToast } from "@/components/ui/use-toast";
 
-// ... existing imports ...
 const AuthCallback = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
