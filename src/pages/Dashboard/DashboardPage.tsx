@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Loader } from 'lucide-react';
@@ -8,6 +9,7 @@ import PassCard from './components/PassCard';
 import PaymentInfo from './components/PaymentInfo';
 import MerchandiseInfo from './components/MerchandiseInfo';
 import ProfileSidebar from './components/ProfileSidebar';
+import SkeletonDashboard from './components/SkeletonDashboard';
 
 export interface UserDetails {
   name: string;
@@ -42,10 +44,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ userData, isLoadin
 
   if (loading || isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center">
-        <Loader className="h-8 w-8 text-blue-500 animate-spin" />
-        <span className="ml-2 text-white">Loading your dashboard...</span>
-      </div>
+      <>
+        <Navbar />
+        <SkeletonDashboard />
+        <Footer />
+      </>
     );
   }
 
