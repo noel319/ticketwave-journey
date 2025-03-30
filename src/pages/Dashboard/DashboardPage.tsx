@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Check, Calendar, Ticket, MapPin, Loader, User, CreditCard, Mail, Package } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { Separator } from "@/components/ui/separator";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/context/AuthContext';
-import { getUserInfo } from '@/services/userService';
 
 interface UserDetails {
   name: string;
@@ -29,29 +27,13 @@ interface UserDetails {
   };
 }
 
-export const DashboardPage: React.FC = () => {
+interface DashboardPageProps {
+  userData: any;
+  isLoading: boolean;
+}
+
+export const DashboardPage: React.FC<DashboardPageProps> = ({ userData, isLoading }) => {
   const { user, loading, isAuthenticated } = useAuth();
-  const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      if (!loading && isAuthenticated && user) {
-        try {
-          const data = await getUserInfo();
-          setUserDetails(data);
-        } catch (error) {
-          console.error('Failed to fetch user details:', error);
-        } finally {
-          setIsLoading(false);
-        }
-      } else if (!loading && !isAuthenticated) {
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserDetails();
-  }, [loading, isAuthenticated, user]);
 
   if (!loading && !isAuthenticated) {
     return <Navigate to="/login" />;
@@ -66,6 +48,7 @@ export const DashboardPage: React.FC = () => {
     );
   }
 
+  // Use userData from props if available, otherwise use mock data
   // Mock data for development
   const mockUserDetails: UserDetails = {
     name: "John Doe",
@@ -86,8 +69,8 @@ export const DashboardPage: React.FC = () => {
     }
   };
 
-  // Use mock data for development if no user details are fetched
-  const details = userDetails || mockUserDetails;
+  // Use userData from props if available, otherwise use mock data
+  const details = userData || mockUserDetails;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
