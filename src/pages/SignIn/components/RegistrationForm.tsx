@@ -80,8 +80,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
   const [showBillingFields, setShowBillingFields] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const { signUp } = useAuth();
-
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -128,7 +127,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
       }
 
       // Create account with provided email and password
-      await signUp(values.email, values.password, values.fullName);
+      
       
       // After successful signup, show success message and navigate
       toast({

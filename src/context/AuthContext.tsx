@@ -27,7 +27,6 @@ type AuthContextType = {
   error: string | null;
   isAuthenticated: boolean;
   signIn: (email: string, password: string) => Promise<string | null>;
-  signUp: (email: string, password: string, name: string) => Promise<string | null>;
   signOut: () => void;
   googleSignIn: () => Promise<string | null>;
   appleSignIn: () => Promise<string | null>;
@@ -118,31 +117,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loading: false,
       }));
       toast.error(error.response?.data?.message || 'Login failed');
-      return null;
-    }
-  };
-
-  // Sign Up
-  const signUp = async (email: string, password: string, name: string): Promise<string | null> => {
-    try {
-      const res = await api.post('/auth/signup', { email, password, name });
-      
-      localStorage.setItem('token', res.data.token);
-      setAuthState({
-        token: res.data.token,
-        user: res.data.user,
-        loading: false,
-        error: null,
-      });
-      
-      return '/verify-email';
-    } catch (error: any) {
-      setAuthState(prev => ({
-        ...prev,
-        error: error.response?.data?.message || 'Registration failed',
-        loading: false,
-      }));
-      toast.error(error.response?.data?.message || 'Registration failed');
       return null;
     }
   };
@@ -262,7 +236,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       error: authState.error,
       isAuthenticated: !!authState.token,
       signIn, 
-      signUp, 
       signOut,
       googleSignIn,
       appleSignIn,

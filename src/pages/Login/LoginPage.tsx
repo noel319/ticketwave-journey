@@ -4,20 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Mail, Lock, ArrowRight, Loader } from 'lucide-react';
+import { ArrowRight, Loader } from 'lucide-react';
 import { toast } from 'sonner';
 import ReCAPTCHA from "react-google-recaptcha";
-
+import { SIGNIN_FIELDS } from '@/lib/authContants';
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import { Form} from '@/components/ui/form';
+import { AuthFormField } from '@/components/auth/FormField';
 import { useAuth } from '@/context/AuthContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -105,48 +98,17 @@ const LoginPage: React.FC = () => {
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          placeholder="your.email@example.com" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input 
-                          type="password" 
-                          placeholder="Enter your password" 
-                          className="pl-10 bg-gray-800/50 border-gray-700 focus:border-purple-500" 
-                          {...field} 
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            {SIGNIN_FIELDS.map((field) => (
+                <AuthFormField
+                  key={field.name}
+                  control={form.control}
+                  name={field.name}
+                  label={field.label}
+                  placeholder={field.placeholder}
+                  type={field.type}
+                  icon={field.icon}
+                />
+              ))}
 
               <div className="flex justify-center my-6">
                 <ReCAPTCHA
