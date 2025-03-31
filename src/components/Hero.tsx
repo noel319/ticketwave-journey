@@ -41,7 +41,7 @@ const Hero = () => {
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight relative">
             <span className="animate-float inline-block relative">                         
-              <span className="relative bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">SOUNDUOEX</span>
+              <span className="relative bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 bg-clip-text text-transparent">SOUNDUOEX</span>
             </span>
             <span className="block text-3xl md:text-5xl mt-2 bg-clip-text text-gray-200 ">
               July 6, 2026
@@ -57,7 +57,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToAboutSection}
-              className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
+              className="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105"
             >
               Learn More
             </button>

@@ -93,7 +93,6 @@ export const Step3UserInfo: React.FC<Step3UserInfoProps> = ({
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
           
-
           <div className="space-y-2">
             <Label htmlFor="email">Email Address</Label>
             <Input
@@ -106,7 +105,8 @@ export const Step3UserInfo: React.FC<Step3UserInfoProps> = ({
               className={errors.email ? "border-red-500" : ""}
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-          </div>          
+          </div>
+          
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <Input
