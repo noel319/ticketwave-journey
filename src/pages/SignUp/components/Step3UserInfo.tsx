@@ -1,267 +1,155 @@
 
 import React from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
-import { User, Mail, Lock, Home, MapPin } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { saveSignupProgress } from '@/utils/signupProgress';
 
-interface Step3Props {
+interface Step3UserInfoProps {
   formData: any;
   updateFormData: (data: any) => void;
   nextStep: () => void;
   prevStep: () => void;
 }
 
-const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string()
-    .min(8, 'Password must be at least 8 characters')
-    .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .regex(/[0-9]/, 'Password must contain at least one number'),
-  confirmPassword: z.string(),
-  address: z.string().min(5, 'Address is required for merchandise delivery'),
-  city: z.string().min(2, 'City is required'),
-  state: z.string().min(2, 'State is required'),
-  zipCode: z.string().min(5, 'Zip code is required'),
-  termsAccepted: z.boolean().refine(val => val === true, {
-    message: "You must accept the terms and conditions"
-  }),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"],
-});
-
-export const Step3UserInfo: React.FC<Step3Props> = ({
-  formData,
-  updateFormData,
-  nextStep,
-  prevStep
+export const Step3UserInfo: React.FC<Step3UserInfoProps> = ({ 
+  formData, 
+  updateFormData, 
+  nextStep, 
+  prevStep 
 }) => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: formData.name || '',
-      email: formData.email || '',
-      password: formData.password || '',
-      confirmPassword: formData.confirmPassword || '',
-      address: formData.address || '',
-      city: formData.city || '',
-      state: formData.state || '',
-      zipCode: formData.zipCode || '',
-      termsAccepted: formData.termsAccepted || false,
-    },
-  });
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    updateFormData(values);
-    nextStep();
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name?.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email?.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+    
+    if (!formData.password?.trim()) {
+      newErrors.password = 'Password is required';
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Password must be at least 8 characters';
+    }
+    
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      // Save progress with email immediately when form is valid
+      if (formData.email) {
+        saveSignupProgress(formData.email, 3, formData);
+      }
+      nextStep();
+    }
+  };
+
+  // Handle input changes and save progress when email is entered
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    updateFormData({ [name]: value });
+    
+    // If email field is changed and has a valid format, save progress
+    if (name === 'email' && /^\S+@\S+\.\S+$/.test(value)) {
+      saveSignupProgress(value, 3, { ...formData, [name]: value });
+    }
   };
 
   return (
-    <>
-      <h2 className="text-2xl font-bold text-white mb-6 border-b border-gray-700/50 pb-4">
-        Create Your Account
-      </h2>
+    <div>
+      <h2 className="text-2xl font-bold mb-6">Create Your Account</h2>
+      <p className="text-gray-400 mb-6">
+        Please provide your information to create your FANS ONLY Pass account.
+      </p>
       
-      <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-6">
-        <p className="text-blue-300">
-          We'll send your concert ticket, digital content, and pass updates to this account
-        </p>
-      </div>
-      
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white mb-2">Personal Information</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input placeholder="Enter your full name" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input type="email" placeholder="Enter your email" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input type="password" placeholder="Create a password" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="confirmPassword"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input type="password" placeholder="Confirm your password" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-4 pt-2">
-            <h3 className="text-xl font-semibold text-white mb-2">Shipping Address</h3>
-            <p className="text-sm text-gray-400 mb-4">We'll deliver your merchandise to this address</p>
-            
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Street Address</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Home className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                      <Input placeholder="Enter your street address" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+      <form onSubmit={handleSubmit}>
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="name">Full Name</Label>
+            <Input
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              value={formData.name}
+              onChange={handleChange}
+              className={errors.name ? "border-red-500" : ""}
             />
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <FormField
-                control={form.control}
-                name="city"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>City</FormLabel>
-                    <FormControl>
-                      <Input placeholder="City" className="bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="state"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>State</FormLabel>
-                    <FormControl>
-                      <Input placeholder="State" className="bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
-                name="zipCode"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Zip Code</FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input placeholder="Zip Code" className="pl-10 bg-gray-800/50 border-gray-700 focus:border-blue-500" {...field} />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
           
-          <FormField
-            control={form.control}
-            name="termsAccepted"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 pt-4">
-                <FormControl>
-                  <Checkbox
-                    className='bg-white text-white'
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel>
-                    I agree to the <a href="#" className="text-blue-400 hover:underline">Terms & Conditions</a> and <a href="#" className="text-blue-400 hover:underline">Privacy Policy</a>
-                  </FormLabel>
-                  <FormMessage />
-                </div>
-              </FormItem>
-            )}
-          />
+
+          <div className="space-y-2">
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              value={formData.email}
+              onChange={handleChange}
+              className={errors.email ? "border-red-500" : ""}
+            />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          </div>          
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Create a secure password"
+              value={formData.password}
+              onChange={handleChange}
+              className={errors.password ? "border-red-500" : ""}
+            />
+            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+            <p className="text-gray-400 text-xs">Password must be at least 8 characters long</p>
+          </div>
           
-          <div className="flex justify-between pt-4">
+          <div className="space-y-2">
+            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm your password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              className={errors.confirmPassword ? "border-red-500" : ""}
+            />
+            {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+          </div>
+          
+          <div className="pt-4 flex justify-between">
             <Button 
-              type="button"
+              type="button" 
+              variant="outline"
               onClick={prevStep}
-              className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
             >
               Back
             </Button>
-            
-            <Button 
-              type="submit"
-              className="bg-gradient-to-r from-blue-400 to-cyan-300 text-gray-900 font-semibold px-8 py-3 rounded-md hover:opacity-90 transition-all"
-            >
+            <Button type="submit" className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white">
               Continue to Payment
             </Button>
           </div>
-        </form>
-      </Form>
-    </>
+        </div>
+      </form>
+    </div>
   );
 };

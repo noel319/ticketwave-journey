@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -19,6 +19,7 @@ import {
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from 'react-router-dom';
+import { saveSignupProgress, getSavedProgress, clearSavedProgress } from '@/utils/signupProgress';
 
 interface MerchandiseItem {
   id: string;
@@ -107,6 +108,56 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
     },
   });
 
+  // Check for saved registration progress on component mount
+  useEffect(() => {
+    const savedProgress = getSavedProgress();
+    if (savedProgress) {
+      // Ask user if they want to continue from where they left off
+      const continueProgress = window.confirm(
+        `You have an unfinished registration from ${new Date(savedProgress.lastUpdated).toLocaleString()}. Do you want to continue from where you left off?`
+      );
+      
+      if (continueProgress) {
+        // Set form values from saved progress
+        Object.entries(savedProgress.formData).forEach(([key, value]) => {
+          try {
+            if (key in form.getValues()) {
+              form.setValue(key as any, value);
+            }
+          } catch (error) {
+            console.error(`Error setting form value for ${key}:`, error);
+          }
+        });
+        
+        toast({
+          title: "Registration Progress Restored",
+          description: "You can continue from where you left off.",
+        });
+        
+        // Set billing fields visibility based on saved data
+        if ('sameAsBilling' in savedProgress.formData) {
+          setShowBillingFields(!savedProgress.formData.sameAsBilling);
+        }
+      } else {
+        // If user declines, clear saved progress
+        clearSavedProgress();
+      }
+    }
+  }, [toast, form]);
+
+  // Save form progress whenever it changes
+  useEffect(() => {
+    const subscription = form.watch((value) => {
+      const email = value.email;
+      if (email && typeof email === 'string' && email.includes('@')) {
+        // Save form data with the current email
+        saveSignupProgress(email, 2, value);
+      }
+    });
+    
+    return () => subscription.unsubscribe();
+  }, [form]);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       if (selectedMerchandise.length !== 2) {
@@ -126,6 +177,11 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
         return;
       }
 
+      // Clear saved progress when registration is successful
+      if (values.email) {
+        clearSavedProgress();
+      }
+      
       // Create account with provided email and password
       
       

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
@@ -9,12 +10,21 @@ import { PaymentPlanSelector } from './components/PaymentPlanSelector';
 import { MerchandiseSelector } from './components/MerchandiseSelector';
 import { RegistrationForm } from './components/RegistrationForm';
 import { PassHeader } from './components/PassHeader';
+import { ContinueSignup } from '@/components/ContinueSignup';
+import { getSavedProgress } from '@/utils/signupProgress';
 
 export const SignInPage: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<'buyNow' | 'paymentPlan'>('buyNow');
   const [step, setStep] = useState(1);
   const [selectedMerchandise, setSelectedMerchandise] = useState<string[]>([]);
+  const [hasSavedProgress, setHasSavedProgress] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Check if there's a saved signup progress
+    const savedProgress = getSavedProgress();
+    setHasSavedProgress(!!savedProgress);
+  }, []);
 
   const merchandise: MerchandiseItem[] = [
     { 
@@ -93,6 +103,8 @@ export const SignInPage: React.FC = () => {
       <main className="pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <PassHeader />
+
+          {hasSavedProgress && <ContinueSignup />}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <PassBenefits />
