@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,8 +9,6 @@ import { Step2PassDetails } from './components/Step2PassDetails';
 import { Step3UserInfo } from './components/Step3UserInfo';
 import { Step4Payment } from './components/Step4Payment';
 import { Step5Success } from './components/Step5Success';
-import { saveSignupProgress, getSavedProgress, clearSavedProgress } from '@/utils/signupProgress';
-import { toast } from 'sonner';
 
 export const SignUpPage: React.FC = () => {
   const navigate = useNavigate();
@@ -34,33 +32,6 @@ export const SignUpPage: React.FC = () => {
     termsAccepted: false
   });
 
-  // Check for saved progress on component mount
-  useEffect(() => {
-    const savedProgress = getSavedProgress();
-    if (savedProgress) {
-      // Ask user if they want to continue from where they left off
-      const continueProgress = window.confirm(
-        `You have an unfinished signup from ${new Date(savedProgress.lastUpdated).toLocaleString()}. Do you want to continue from where you left off?`
-      );
-      
-      if (continueProgress) {
-        setCurrentStep(savedProgress.currentStep);
-        setFormData(prev => ({ ...prev, ...savedProgress.formData }));
-        toast.info(`Welcome back! You're now on step ${savedProgress.currentStep} of 5`);
-      } else {
-        // If user declines, clear saved progress
-        clearSavedProgress();
-      }
-    }
-  }, []);
-
-  // Save progress whenever form data or current step changes
-  useEffect(() => {
-    if (formData.email && currentStep > 1 && currentStep < 5) {
-      saveSignupProgress(formData.email, currentStep, formData);
-    }
-  }, [currentStep, formData]);
-
   const updateFormData = (data: Partial<typeof formData>) => {
     setFormData(prev => ({ ...prev, ...data }));
   };
@@ -68,36 +39,12 @@ export const SignUpPage: React.FC = () => {
   const nextStep = () => {
     setCurrentStep(prev => Math.min(prev + 1, 5));
     window.scrollTo(0, 0);
-    
-    // If we've reached the final step, clear saved progress
-    if (currentStep === 4) {
-      clearSavedProgress();
-    }
   };
 
   const prevStep = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
     window.scrollTo(0, 0);
   };
-
-  // If user is navigating away, we should save their progress
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (currentStep > 1 && currentStep < 5 && formData.email) {
-        saveSignupProgress(formData.email, currentStep, formData);
-        
-        // Modern browsers ignore this message, but we need to set returnValue for the confirmation dialog to show
-        const message = "You have unfinished signup progress. Are you sure you want to leave?";
-        e.returnValue = message;
-        return message;
-      }
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [currentStep, formData]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
