@@ -229,6 +229,7 @@ export const Step3UserInfo: React.FC<Step3Props> = ({
               <FormItem className="flex flex-row items-start space-x-3 space-y-0 pt-4">
                 <FormControl>
                   <Checkbox
+                    className='bg-white text-white'
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
