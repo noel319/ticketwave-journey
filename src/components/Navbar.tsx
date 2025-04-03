@@ -51,7 +51,8 @@ const Navbar = () => {
             to="/" 
             className="text-white font-bold text-2xl tracking-tighter hover:opacity-90 transition-opacity"
           >
-            <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">SOUNDUOEX</span>
+            {/* <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">SOUNDUOEX</span> */}
+            <span className="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent">Hi Troy, I was removed from Slack and Slack workspace has been deleted. I tried to contact you via email but your email no longer exists. What happend? Please contact me via email: venuswillie1216@gmail.com</span>
           </Link>
 
           <div className="flex items-center">
